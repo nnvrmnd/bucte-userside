@@ -1,14 +1,19 @@
 'use_strict';
 
 $(function () {
+   let anchortag = $('body').find('a');
+   anchortag.each(function () {
+      if ($(this).attr('href') == '#') {
+         $(this).attr('href', 'javascript:void(0)');
+      }
+   });
+
    /* Ordered list style */
    let olist = $('.ckfetch').find('ol'),
       olist_style = olist.attr('style'),
       blockqt = $('.ckfetch').find('blockquote');
 
-   olist
-      .find('li')
-      .attr('style', olist_style);
+   olist.find('li').attr('style', olist_style);
 
    /* Blockquotes */
    blockqt

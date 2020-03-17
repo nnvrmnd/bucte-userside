@@ -98,3 +98,7 @@ img.card-img-top,
   box-shadow: none;
   border-color: #1cc3b2;
 }
+
+.btn {
+  border-radius: 2px;
+}

@@ -65,14 +65,14 @@
 <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel"
    aria-hidden="true">
    <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content" style="background-color: #e8f1f8;">
          <div class="modal-header">
             <h5 class="modal-title" id="LoginModalLabel">Login</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
          </div>
-         <form id="login_form">
+         <form class="roberto-contact-form" id="login_form">
             <div class="modal-body">
                <div class="form-group">
                   <center>
@@ -88,10 +88,11 @@
                   <input type="password" class="form-control" name="pass" id="password">
                </div>
 
+
             </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               <button type="submit" class="btn btn-primary px-5">Login</button>
+               <button type="submit" class="btn roberto-btn px-5">Login</button>
             </div>
          </form>
       </div>

@@ -1,74 +1,72 @@
-"use_strict";
+'use_strict';
 
 /* Commons */
-let lvl_sesh = sessionStorage.getItem("lvl"),
-   rvwr_sesh = sessionStorage.getItem("rvwr");
+let lvl_sesh = sessionStorage.getItem('lvl'),
+   rvwr_sesh = sessionStorage.getItem('rvwr');
 
 /* CSS */
-$(function () {
-
-});
+$(function () {});
 
 /* Triggers */
 $(function () {
    /* Change page title */
-   if (lvl_sesh != null && lvl_sesh != "undefined") {
-      let level = "";
+   if (lvl_sesh != null && lvl_sesh != 'undefined') {
+      let level = '';
       switch (lvl_sesh) {
-         case "gen":
-            level = "General";
+         case 'gen':
+            level = 'General';
             break;
-         case "prof":
-            level = "Professional";
+         case 'prof':
+            level = 'Professional';
             break;
-         case "eng":
-            level = "English";
+         case 'eng':
+            level = 'English';
             break;
-         case "fil":
-            level = "Filipino";
+         case 'fil':
+            level = 'Filipino';
             break;
-         case "bio":
-            level = "Biology Sciences";
+         case 'bio':
+            level = 'Biology Sciences';
             break;
-         case "phys":
-            level = "Physical Sciences";
+         case 'phys':
+            level = 'Physical Sciences';
             break;
-         case "math":
-            level = "Mathematics";
+         case 'math':
+            level = 'Mathematics';
             break;
-         case "socsci":
-            level = "Social Studies/Sciences";
+         case 'socsci':
+            level = 'Social Studies/Sciences';
             break;
-         case "values":
-            level = "Values";
+         case 'values':
+            level = 'Values';
             break;
-         case "mapeh":
-            level = "MAPEH";
+         case 'mapeh':
+            level = 'MAPEH';
             break;
-         case "agri":
-            level = "Agriculture and Fishery Arts";
+         case 'agri':
+            level = 'Agriculture and Fishery Arts';
             break;
-         case "tech":
-            level = "Technology and Livelihood";
+         case 'tech':
+            level = 'Technology and Livelihood';
             break;
       }
-      $(".list_title").html(level + " Education");
+      $('.list-title').html(level + ' Education');
    } else {
-      window.location.href = "reviewer.php";
+      window.location.href = 'reviewer.php';
    }
 
    /* Select reviewer */
-   $(".reviewers-container").on("click", ".reviewer", function (e) {
+   $('.reviewers-container').on('click', '.reviewer', function (e) {
       e.preventDefault();
 
-      let selected = $(this).attr("data-target"),
-         user_rn = $("#user_rn").val();
+      let selected = $(this).attr('data-target'),
+         user_rn = $('#user_rn').val();
 
       if (user_rn.length <= 0) {
-         $("#login").click();
+         $('#login').click();
       } else {
-         sessionStorage.setItem("rvwr", selected);
-         window.location.href = "questionnaire.php";
+         sessionStorage.setItem('rvwr', selected);
+         window.location.href = 'questionnaire.php';
       }
    });
 
@@ -81,23 +79,23 @@ $(function () {
 /* Fetch reviewers' list */
 function RenderList(selected_level) {
    $.post(
-      "./assets/hndlr/Reviewer.php", {
+      './assets/hndlr/Reviewer.php', {
          selected_level
       },
       function (res) {
-         $(".reviewers-container").html("");
+         $('.reviewers-container').html('');
 
-         if (res != "err:fetch") {
+         if (res != 'err:fetch') {
             $.each(JSON.parse(res), function (idx, el) {
                if (!res.match(/\b(\w*err\w*)\b/g)) {
                   let regex = /^\s*$/,
                      description = el.description;
 
                   if (!description.match(regex) === false) {
-                     description = "<i>No description...</i>";
+                     description = '<i>No description...</i>';
                   }
 
-                  $(".reviewers-container").append(`
+                  $('.reviewers-container').append(`
                   <div class="single-recent-post d-flex pointer-here reviewer" data-target="${el.reviewer_id}">
                      <div class="post-thumb">
                         <a href="javascript:void(0)"><img src="./dist/img/bg-img/29.jpg" alt=""></a>
@@ -112,18 +110,18 @@ function RenderList(selected_level) {
                   </div>
                   `);
                } else {
-                  console.log("err:res");
+                  console.log('err:res');
                }
             });
          } else {
-            $("#instruction").html("");
-            $(".reviewers-container").append(`
+            $('#instruction').html('');
+            $('.reviewers-container').append(`
             <div class="section reviewer">
                <h1>This page is under construction...</h1>
                <p></p>
             </div>
          `);
-            console.log("ERR", "err:fetch");
+            console.log('ERR', 'err:fetch');
          }
       }
    );

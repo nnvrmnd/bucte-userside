@@ -6,7 +6,7 @@ SeshStart('page');
 <html lang="en">
 
 <head>
-    <title>Blank Page | BUCTE</title>
+    <title>Events | BUCTE</title>
     <?php include './components/layout/Head.php'; ?>
 </head>
 
@@ -20,11 +20,11 @@ SeshStart('page');
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">Blog Left Sidebar</h2>
+                        <h2 class="page-title">Events</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Blog Left Sidebar</li>
+                                <li class="breadcrumb-item active" aria-current="page">Events</li>
                             </ol>
                         </nav>
                     </div>

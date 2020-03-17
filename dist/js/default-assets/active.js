@@ -231,7 +231,7 @@
     // ****************************
     if ($.fn.scrollUp) {
         roberto_window.scrollUp({
-            scrollSpeed: 1500,
+            scrollSpeed: 200,
             scrollText: '<i class="arrow_carrot-up"</i>'
         });
     }

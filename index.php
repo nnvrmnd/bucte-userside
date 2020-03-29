@@ -148,7 +148,7 @@ SeshStart('page');
                         <a href="#" class="post-title">Learn How To Motivate Yourself</a>
                         <p>How many free autoresponders have you tried? And how many emails did you get through using
                             them?</p>
-                        <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right"
+                        <a href="#" class="btn continue-btn"><i class="fa fa-long-arrow-right"
                                 aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -166,7 +166,7 @@ SeshStart('page');
                         <a href="#" class="post-title">What If Let You Run The Hubble</a>
                         <p>My point here is that if you have no clue for the answers above you probably are not
                             operating a followup.</p>
-                        <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right"
+                        <a href="#" class="btn continue-btn"><i class="fa fa-long-arrow-right"
                                 aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -184,7 +184,7 @@ SeshStart('page');
                         <a href="#" class="post-title">Six Pack Abs The Big Picture</a>
                         <p>Some good steps to take to ensure you are getting what you need out of a autoresponder
                             include…</p>
-                        <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right"
+                        <a href="#" class="btn continue-btn"><i class="fa fa-long-arrow-right"
                                 aria-hidden="true"></i></a>
                     </div>
                 </div>

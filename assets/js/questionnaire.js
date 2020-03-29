@@ -122,7 +122,7 @@ $(function () {
         success: function (res) {
           switch (res) {
             case 'true':
-              SuccessModal('Submitted. Loading results, please wait...', 0, 5000);
+              SuccessModal('Submitted. Loading results, please wait...', 0, 0, 5000);
               $('#SuccessModal').on('hidden.bs.modal', function () {
                 window.location.href = 'result.php';
               });

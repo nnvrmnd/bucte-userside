@@ -18,7 +18,7 @@
          <div class="single-recent-post d-flex">
             <!-- Thumb -->
             <div class="post-thumb">
-               <a href="single-blog.html"><img src="./dist/img/bg-img/29.jpg" alt=""></a>
+               <a href="#"><img src="./dist/img/bg-img/29.jpg" alt=""></a>
             </div>
             <!-- Content -->
             <div class="post-content">
@@ -27,7 +27,7 @@
                   <a href="#" class="post-author">Jan 29, 2019</a>
                   <a href="#" class="post-tutorial">Event</a>
                </div>
-               <a href="single-blog.html" class="post-title">Proven Techniques Help You Herbal
+               <a href="#" class="post-title">Proven Techniques Help You Herbal
                   Breast</a>
             </div>
          </div>
@@ -36,7 +36,7 @@
          <div class="single-recent-post d-flex">
             <!-- Thumb -->
             <div class="post-thumb">
-               <a href="single-blog.html"><img src="./dist/img/bg-img/30.jpg" alt=""></a>
+               <a href="#"><img src="./dist/img/bg-img/30.jpg" alt=""></a>
             </div>
             <!-- Content -->
             <div class="post-content">
@@ -45,7 +45,7 @@
                   <a href="#" class="post-author">Jan 29, 2019</a>
                   <a href="#" class="post-tutorial">Event</a>
                </div>
-               <a href="single-blog.html" class="post-title">Cooking On A George Foreman Grill</a>
+               <a href="#" class="post-title">Cooking On A George Foreman Grill</a>
             </div>
          </div>
 
@@ -53,7 +53,7 @@
          <div class="single-recent-post d-flex">
             <!-- Thumb -->
             <div class="post-thumb">
-               <a href="single-blog.html"><img src="./dist/img/bg-img/31.jpg" alt=""></a>
+               <a href="#"><img src="./dist/img/bg-img/31.jpg" alt=""></a>
             </div>
             <!-- Content -->
             <div class="post-content">
@@ -62,7 +62,7 @@
                   <a href="#" class="post-author">Jan 29, 2019</a>
                   <a href="#" class="post-tutorial">Event</a>
                </div>
-               <a href="single-blog.html" class="post-title">Selecting The Right Hotel</a>
+               <a href="#" class="post-title">Selecting The Right Hotel</a>
             </div>
          </div>
 
@@ -70,7 +70,7 @@
          <div class="single-recent-post d-flex">
             <!-- Thumb -->
             <div class="post-thumb">
-               <a href="single-blog.html"><img src="./dist/img/bg-img/32.jpg" alt=""></a>
+               <a href="#"><img src="./dist/img/bg-img/32.jpg" alt=""></a>
             </div>
             <!-- Content -->
             <div class="post-content">
@@ -79,7 +79,7 @@
                   <a href="#" class="post-author">Jan 29, 2019</a>
                   <a href="#" class="post-tutorial">Event</a>
                </div>
-               <a href="single-blog.html" class="post-title">Comment Importance Of Human Life</a>
+               <a href="#" class="post-title">Comment Importance Of Human Life</a>
             </div>
          </div>
       </div>

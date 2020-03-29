@@ -63,7 +63,7 @@ $(function() {
       },
       function(res) {
         if (res == 'true') {
-          SuccessModal('Loading questionnaire.', 'questionnaire.php', 5000);
+          SuccessModal('Loading questionnaire.', 'questionnaire.php', 0, 5000);
         } else {
           console.log('ERR', res);
         }

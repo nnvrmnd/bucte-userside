@@ -1,6 +1,7 @@
 'use_strict';
 
 $(function () {
+   /* replace all anchortag with # -> javascript:void(0) */
    let anchortag = $('body').find('a');
    anchortag.each(function () {
       if ($(this).attr('href') == '#') {
@@ -70,7 +71,7 @@ $(function () {
    });
 
    /* Login */
-   $('form#login_form').submit(function (e) {
+   $('form#login_form, form#loginpage_form').submit(function (e) {
       e.preventDefault();
 
       let thisform = $(this),
@@ -81,7 +82,13 @@ $(function () {
          url: './assets/hndlr/Login.php',
          data: cred,
          success: function (res) {
+            console.log(res)
             switch (res) {
+               case 'unverified':
+                  $('.login-msg').html('This account is not yet verified. Please check your email.');
+                  thisform.find('input.form-control').addClass('is-invalid');
+                  break;
+
                case 'true':
                   $('.login-msg').html('');
                   thisform.find('.form-control').removeClass('is-invalid');
@@ -105,10 +112,25 @@ $(function () {
 
 var timer = null; // for timeouts
 
-function SuccessModal(msg, redirect, timeout) {
+function WaitModal() {
+   window.clearTimeout(timer);
+   $('.modal').modal('hide');
+   $('#WaitModal').modal('show');
+
+   /* timer = setTimeout(() => {
+      $('#WaitModal').modal('hide');
+      timer = null;
+   }, timeout - 1000); */
+}
+
+function SuccessModal(msg, redirect, newtab, timeout) {
    if (redirect !== 0) {
       $('#SuccessModal').on('hidden.bs.modal', function () {
-         window.location.href = redirect;
+         if (newtab === 1) {
+            window.open(redirect, '_blank');
+         } else{
+            window.location.href = redirect;
+         }
       });
    }
 
@@ -199,4 +221,264 @@ function IDUserRN(input) {
          }
       }
    );
+}
+
+function unicode(name) {
+   let this_name = $(`[name="${name}"]`).val();
+
+   this_name
+      .replace(/\!/g, '&#33;')
+      .replace(/"/g, '&#34;')
+      .replace(/\#/g, '&#35;')
+      .replace(/\$/g, '&#36;')
+      .replace(/\%/g, '&#37;')
+      .replace(/&/g, '&#38;')
+      .replace(/'/g, '&#39;')
+      .replace(/\(/g, '&#40;')
+      .replace(/\)/g, '&#41;')
+      .replace(/\*/g, '&#42;')
+      .replace(/\+/g, '&#43;')
+      .replace(/,/g, '&#44;')
+      .replace(/-/g, '&#45;')
+      .replace(/./g, '&#46;')
+      .replace(/\//g, '&#47;')
+      .replace(/:/g, '&#58;')
+      .replace(/;/g, '&#59;')
+      .replace(/\</g, '&#60;')
+      .replace(/\=/g, '&#61;')
+      .replace(/\>/g, '&#62;')
+      .replace(/\?/g, '&#63;')
+      .replace(/\@/g, '&#64;')
+      .replace(/\[/g, '&#91;')
+      .replace(/\\/g, '&#92;')
+      .replace(/\]/g, '&#93;')
+      .replace(/\^/g, '&#94;')
+      .replace(/_/g, '&#95;')
+      .replace(/`/g, '&#96;')
+      .replace(/\{/g, '&#123;')
+      .replace(/|/g, '&#124;')
+      .replace(/\}/g, '&#125;')
+      .replace(/~/g, '&#126;');
+
+}
+
+/* Validate required input */
+function ValidateRequired(form_id, name) {
+   let ctrl = true,
+      formid = `form#${form_id} `,
+      name_attr = formid + `[name="${name}"]`,
+      input = $(name_attr).val(),
+      regex = /^\s*$/,
+      required = !input.match(regex) ? true : false;
+
+   switch (false) {
+      case required:
+         $(name_attr).addClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .html('Field required.');
+         ctrl = false;
+         break;
+
+      default:
+         unicode(name);
+         $(name_attr).removeClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .html('');
+         break;
+   }
+
+   return ctrl;
+}
+
+/* Validate username input */
+function ValidateUsername(form_id, name) {
+   let ctrl = true,
+      formid = `form#${form_id} `,
+      name_attr = formid + `[name="${name}"]`,
+      input = $(name_attr).val(),
+      regex = new RegExp(/^[a-z0-9_]{5,16}$/gi),
+      length = input.length >= 5 ? true : false,
+      required = !input.match(/^\s*$/) ? true : false,
+      validation = '';
+
+   switch (false) {
+      case required:
+         $(name_attr).addClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .html('Field required.');
+         ctrl = false;
+         break;
+      case length:
+         $(name_attr).addClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .html('Use at least 5 or more characters.');
+         ctrl = false;
+         break;
+      case regex.test(input):
+         $(name_attr).addClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .html('You can use letters, numbers & underscores.');
+         ctrl = false;
+         break;
+
+      default:
+         $.ajax({
+            type: 'POST',
+            url: './assets/hndlr/CreateProfile.php',
+            data: {
+               validate_username: input
+            },
+            async: false,
+            success: function (res) {
+               switch (res) {
+                  case 'not available':
+                     $(name_attr)
+                        .removeClass('is-valid')
+                        .addClass('is-invalid');
+                     $(formid + 'small.' + name)
+                        .removeClass('text-success')
+                        .addClass('text-danger')
+                        .html('Username not available.');
+                     ctrl = false;
+                     break;
+                  case 'available':
+                     $(name_attr)
+                        .removeClass('is-invalid')
+                        .addClass('is-valid');
+                     $(formid + 'small.' + name).html('');
+                     break;
+                  default:
+                     console.log('ValidateUsername', res);
+                     ErrorModal(0, 0, 5000);
+                     ctrl = false;
+                     break;
+               }
+            }
+         });
+         break;
+   }
+
+   return ctrl;
+}
+
+/* Validate email input */
+function ValidateEmail(form_id, name) {
+   let ctrl = true,
+      formid = `form#${form_id} `,
+      name_attr = formid + `[name="${name}"]`,
+      input = $(name_attr).val(),
+      regex = new RegExp(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/gi),
+      required = !input.match(/^\s*$/) ? true : false,
+      validation = '';
+
+   switch (false) {
+      case required:
+         $(name_attr).addClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .html('Field required.');
+         ctrl = false;
+         break;
+      case regex.test(input):
+         $(name_attr).addClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .html('Not a valid email address.');
+         ctrl = false;
+         break;
+
+      default:
+         $.ajax({
+            type: 'POST',
+            url: './assets/hndlr/CreateProfile.php',
+            data: {
+               validate_email: input
+            },
+            async: false,
+            success: function (res) {
+               switch (res) {
+                  case 'not available':
+                     $(name_attr)
+                        .removeClass('is-valid')
+                        .addClass('is-invalid');
+                     $(formid + 'small.' + name)
+                        .removeClass('text-success')
+                        .addClass('text-danger')
+                        .html('Email already registered.');
+                     ctrl = false;
+                     break;
+                  case 'available':
+                     $(name_attr)
+                        .removeClass('is-invalid')
+                        .addClass('is-valid');
+                     $(formid + 'small.' + name).html('');
+                     break;
+                  default:
+                     console.log('ValidateEmail', res);
+                     ErrorModal(0, 0, 5000);
+                     ctrl = false;
+                     break;
+               }
+            }
+         });
+         break;
+   }
+
+   return ctrl;
+}
+
+/* Validate password input */
+function ValidatePassword(form_id, name) {
+   let ctrl = true,
+      formid = `form#${form_id} `,
+      name_attr = formid + `[name="${name}"]`,
+      input = $(name_attr).val(),
+      length = input.length >= 8 ? true : false,
+      regex = /^\s*$/,
+      required = !input.match(regex) ? true : false;
+
+   switch (false) {
+      case required:
+         $(name_attr)
+            .removeClass('is-valid')
+            .addClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .html('Field required.');
+         ctrl = false;
+         break;
+      case length:
+         $(name_attr)
+            .removeClass('is-valid')
+            .addClass('is-invalid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .html('Enter a combination of at least 8 characters.');
+         ctrl = false;
+         break;
+
+      default:
+         $(name_attr)
+            .removeClass('is-invalid')
+            .addClass('is-valid');
+         $(formid + 'small.' + name)
+            .removeClass('text-success')
+            .html('');
+         break;
+   }
+
+   return ctrl;
 }

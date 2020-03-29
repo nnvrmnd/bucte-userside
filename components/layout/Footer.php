@@ -79,7 +79,7 @@
                   <span>Subscribe our newsletter gor get notification about new updates.</span>
 
                   <!-- Newsletter Form -->
-                  <form action="index.html" class="nl-form">
+                  <form action="index.php" class="nl-form">
                      <input type="email" class="form-control" placeholder="Enter your email...">
                      <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                   </form>

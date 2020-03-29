@@ -1,6 +1,6 @@
 <?php
 include './components/functions/Functions.php';
-SeshStart('page');
+SeshStart('restricted');
 ?>
 <!DOCTYPE html>
 <html lang="en">

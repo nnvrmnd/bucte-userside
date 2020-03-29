@@ -98,8 +98,7 @@
 
                      <!-- Book Now -->
                      <div class="book-now-btn ml-3 ml-lg-5 d-none">
-                        <a href="#">Book Now <i class="fa fa-long-arrow-right"
-                              aria-hidden="true"></i></a>
+                        <a href="#">Book Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                      </div>
                   </div>
                   <!-- Nav End -->

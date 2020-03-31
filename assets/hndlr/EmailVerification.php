@@ -15,7 +15,7 @@ if (isset($_POST['exp']) && isset($_POST['sig'])) {
       exit("!signature");
    }
 
-   $stmnt = "SELECT * FROM user WHERE BINARY email = ? ;";
+   $stmnt = "SELECT * FROM user WHERE BINARY email = ? AND account_status = 0 ;";
    $query = $db->prepare($stmnt);
    $param = [$passed_email];
    $query->execute($param);
@@ -34,7 +34,7 @@ if (isset($_POST['exp']) && isset($_POST['sig'])) {
                $expires = $data['expires'];
                switch (false) {
                   case $signature === $passed_sig:
-                     exit('!signature');
+                     exit('!signature1');
                      break;
                   case $date_today <= $expires:
                      exit('expired!');
@@ -50,38 +50,46 @@ if (isset($_POST['exp']) && isset($_POST['sig'])) {
          }
       }
    } else {
-      exit("account !exist");
+      exit("clear");
    }
 
 }
 
 if (isset($_POST['evf_email'])) {
    require './db.hndlr.php';
+   include_once './Mailer.php';
+
    $email = $_POST['evf_email'];
    $id = IDEmail($email);
    $expires = date('YmdHis', strtotime('+48 hours'));
+   $signature = $email . "_" . $expires;
 
    $db->beginTransaction();
-   $stmnt = "SELECT * FROM unverified_user WHERE BINARY email = ? ;";
+   $stmnt = "SELECT * FROM unverified_user WHERE BINARY email = ? ;"; // check if email already exist
    $query = $db->prepare($stmnt);
    $param = [$email];
    $query->execute($param);
    $count = $query->rowCount();
    if ($count > 0) {
-      $stmnt = "UPDATE unverified_user SET expires = ? WHERE BINARY email = ? ;";
+      $stmnt = "UPDATE unverified_user SET expires = ? WHERE BINARY email = ? ;"; // update expiration
       $query = $db->prepare($stmnt);
       $param = [$expires, $email];
       $query->execute($param);
       $count = $query->rowCount();
       if ($count > 0) {
-         $db->commit();
-         exit('true');
+         if (VerificationEmail($email, $expires, $signature) === "sent") {
+            $db->commit();
+            exit('sent');
+         } else {
+            $db->rollBack();
+            exit('!sent');
+         }
       } else {
          $db->rollBack();
          exit('err:update');
       }
    } else {
-      $stmnt = "INSERT INTO unverified_user (u_id, email, expires) VALUES (?, ?, ?) ;";
+      $stmnt = "INSERT INTO unverified_user (u_id, email, expires) VALUES (?, ?, ?) ;"; // create expiration
       $query = $db->prepare($stmnt);
       $param = [$id, $email, $expires];
       $query->execute($param);
@@ -126,7 +134,7 @@ function VerifyAccount($id) {
       $query->execute($param);
       $count = $query->rowCount();
       if ($count > 0) {
-         $db->rollBack();
+         $db->commit();
          return "verified!";
       } else {
          $db->rollBack();
@@ -137,3 +145,8 @@ function VerifyAccount($id) {
    }
 
 }
+
+// $test = md5('suterusu.naito@gmail.com_20200402225740');
+// echo $test;
+// echo "<br>";
+// echo "884d6e503ad4653a172ee343dc967f8a";

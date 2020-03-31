@@ -10,7 +10,7 @@ use PHPMailer\PHPMailer\Exception;
 function VerificationEmail($email, $expiration, $signature) {
 
    $domain = "http://localhost/app/bucte/";
-   $verification_link = $domain . "email-verification.php?email=" . str_replace("@", "%40", $email);
+   $verification_link = $domain . "login.php?email=" . str_replace("@", "%40", $email);
    $verification_link .= "&exp=" . $expiration;
    $verification_link .= "&sig=" . md5($signature);
 
@@ -29,7 +29,7 @@ function VerificationEmail($email, $expiration, $signature) {
 
       //Recipients
       $mail->setFrom("donotreply@bicol-u.edu.ph", "BU Center for Teaching Excellence");
-      $mail->addAddress('suterusu.naito@gmail.com');
+      $mail->addAddress($email);
       $mail->addReplyTo("donotreply@bicol-u.edu.ph", "No reply");
 
       // Content
@@ -296,8 +296,8 @@ function VerificationEmail($email, $expiration, $signature) {
       $mail->send();
       return "sent";
    } catch (Exception $e) {
-      // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
       return "err:mailer";
+      // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
    }
 
 }

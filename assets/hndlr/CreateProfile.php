@@ -103,9 +103,13 @@ if (isset($_POST['unverified'])) {
         $query->execute($param);
         $count = $query->rowCount();
         if ($count > 0) {
-            $db->commit();
-            echo VerificationEmail($email, $expires, $signature);
-            exit();
+            if (VerificationEmail($email, $expires, $signature) === "sent") {
+                $db->commit();
+                exit('sent');
+            } else {
+                $db->rollBack();
+                exit('!sent');
+            }
         } else {
             $db->rollBack();
             echo UnsaveUser($id);
@@ -129,7 +133,8 @@ function Sequence()
     }
 }
 
-function UnsaveUser($todelete) {
+function UnsaveUser($todelete)
+{
     require './db.hndlr.php';
 
     $db->beginTransaction();

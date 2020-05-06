@@ -23,9 +23,9 @@
 
             <div class="col-8">
                <div class="top-header-content">
-                  <a href="javascript:void(0)"><i class="fa fa-facebook"></i> <span>BUCTE Official</span></a>
-                  <a href="javascript:void(0)"><i class="icon_mail"></i> <span>bu-cte@bicol-u.edu.ph</span></a>
-                  <a href="javascript:void(0)"><i class="icon_phone"></i> <span>Telefax: (052) 742-1909</span></a>
+                  <a href="#"><i class="fa fa-facebook"></i> <span>BUCTE Official</span></a>
+                  <a href="#"><i class="icon_mail"></i> <span>bu-cte@bicol-u.edu.ph</span></a>
+                  <a href="#"><i class="icon_phone"></i> <span>Telefax: (052) 742-1909</span></a>
                </div>
             </div>
 
@@ -33,7 +33,7 @@
                <div class="top-header-content">
                   <!-- Top Social Area -->
                   <div class="top-social-area ml-auto">
-                     <a href="javascript:void(0)">
+                     <a href="#">
                         <i class="fa fa-facebook mr-1" aria-hidden="true"></i>
                         <!-- <span>BUCTE Official</span> -->
                      </a>
@@ -71,8 +71,8 @@
                   <div class="classynav">
                      <ul id="nav">
                         <li class="active"><a href="./index.php">Home</a></li>
-                        <li><a href="./news.php">News</a></li>
-                        <li><a href="javascript:void(0)" class="default-pointer-here">Library</a>
+                        <li><a href="./events.php">Events</a></li>
+                        <li><a href="#" class="default-pointer-here">Library</a>
                            <ul class="dropdown">
                               <li><a href="./reviewer.php">E-LET Reviewer</a></li>
                               <li><a href="./library.php">Learning Resources</a></li>
@@ -83,10 +83,10 @@
                         <li><a href="./gallery.php">Gallery</a></li>
                         <li><a href="./contact.php">Contact</a></li>
                         <li id="login_li">
-                           <a href="javascript:void(0)" class="default-pointer-here" id="login">Login</a>
+                           <a href="#" class="default-pointer-here" id="login">Login</a>
                            <ul class="dropdown d-none">
-                              <li><a href="javascript:void(0)">My profile</a></li>
-                              <li><a href="javascript:void(0)" id="logout">Logout</a></li>
+                              <li><a href="#">My profile</a></li>
+                              <li><a href="#" id="logout">Logout</a></li>
                            </ul>
                         </li>
                      </ul>
@@ -98,8 +98,7 @@
 
                      <!-- Book Now -->
                      <div class="book-now-btn ml-3 ml-lg-5 d-none">
-                        <a href="javascript:void(0)">Book Now <i class="fa fa-long-arrow-right"
-                              aria-hidden="true"></i></a>
+                        <a href="#">Book Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                      </div>
                   </div>
                   <!-- Nav End -->

@@ -1,0 +1,133 @@
+#container {
+    padding: 30px;
+}
+
+.section {
+    width: 75%;
+    border-radius: 0px;
+    background: #f2f9fe;
+    margin: 20px auto;
+    overflow: auto;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.section:hover {
+    background-color: #f2f9fe;
+    border-width: 2px;
+    box-shadow: none;
+}
+
+.radio {
+    position: relative;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 14px;
+    margin: 10px;
+}
+
+section {
+    max-height: 1500px;
+    padding-top: 10px;
+}
+
+label.radios {
+    margin: 2em;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+/* label:hover {
+    border-width: initial;
+    border-right-style: dotted;
+    border-color: #4285f4;
+} */
+
+input {
+    height: 1px;
+    width: 1px;
+    opacity: 0;
+}
+
+.outside {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: none;
+}
+
+.outside.default {
+    border: 2px solid #ff9149;
+}
+
+.outside.none {
+    border: 2px solid gray;
+}
+
+.inside {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    left: 3px;
+    top: 3px;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0);
+}
+
+.inside.default {
+    background: #ff9149;
+}
+
+.inside.none {
+    background: gray;
+}
+
+.outside.answered-correct {
+    border: 2px solid #2dce89;
+}
+
+.inside.answered-correct {
+    background: #2dce89;
+}
+
+.outside.answered-wrong {
+    border: 2px solid #f5365c;
+}
+
+.inside.answered-wrong {
+    background: #f5365c;
+}
+
+.no-transforms .inside {
+    left: auto;
+    top: auto;
+    width: 0;
+    height: 0;
+}
+
+input:checked+.outside .inside {
+    -webkit-animation: radio-select 0.1s linear;
+    animation: radio-select 0.1s linear;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.no-transforms input:checked+.outside .inside {
+    width: 10px;
+    height: 10px;
+}

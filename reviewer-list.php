@@ -42,15 +42,15 @@ SeshStart('page');
                 <div class="col-12 col-lg-8 ">
                     <!-- MAIN CONTENT HERE -->
                     <div class="single-widget-area mb-100">
-                        <h4 class="widget-title mb-30">Reviewers</h4>
+                        <h4 class="widget-title mb-30 list-title"></h4>
 
                         <div class="reviewers-container">
                             <!-- <div class="single-recent-post d-flex">
                                 <div class="post-thumb">
-                                    <a href="javascript:void(0)"><img src="./dist/img/bg-img/29.jpg" alt=""></a>
+                                    <a href="#"><img src="./dist/img/bg-img/29.jpg" alt=""></a>
                                 </div>
                                 <div class="post-content">
-                                    <a href="javascript:void(0)" class="font-weight-bold post-title mb-2">Lorem;alskd;alskd</a>
+                                    <a href="#" class="font-weight-bold post-title mb-2">Lorem;alskd;alskd</a>
                                     <p class="mb-0">Lorem ipsum dolor sit amet.</p>
                                     <p>Lorem ipsum dolor sit amet.</p>
                                 </div>
@@ -82,7 +82,7 @@ SeshStart('page');
                         </div>
                     </div>
                     <div class="col-12 col-md-5 text-right">
-                        <a href="javascript:void(0)" class="btn roberto-btn mb-50">Contact Now</a>
+                        <a href="#" class="btn roberto-btn mb-50">Contact Now</a>
                     </div>
                 </div>
             </div>
@@ -98,15 +98,15 @@ SeshStart('page');
                     <div class="partner-logo-content d-flex align-items-center justify-content-between wow fadeInUp"
                         data-wow-delay="300ms">
                         <!-- Single Partner Logo -->
-                        <a href="javascript:void(0)" class="partner-logo"><img src="./dist/img/core-img/p1.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="./dist/img/core-img/p1.png" alt=""></a>
                         <!-- Single Partner Logo -->
-                        <a href="javascript:void(0)" class="partner-logo"><img src="./dist/img/core-img/p2.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="./dist/img/core-img/p2.png" alt=""></a>
                         <!-- Single Partner Logo -->
-                        <a href="javascript:void(0)" class="partner-logo"><img src="./dist/img/core-img/p3.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="./dist/img/core-img/p3.png" alt=""></a>
                         <!-- Single Partner Logo -->
-                        <a href="javascript:void(0)" class="partner-logo"><img src="./dist/img/core-img/p4.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="./dist/img/core-img/p4.png" alt=""></a>
                         <!-- Single Partner Logo -->
-                        <a href="javascript:void(0)" class="partner-logo"><img src="./dist/img/core-img/p5.png" alt=""></a>
+                        <a href="#" class="partner-logo"><img src="./dist/img/core-img/p5.png" alt=""></a>
                     </div>
                 </div>
             </div>

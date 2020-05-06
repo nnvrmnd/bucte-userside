@@ -82,7 +82,6 @@ if (isset($_POST['fetchitems']) && isset($_POST['reviewer'])) {
     }
 }
 
-/* New item */
 if (isset($_POST['testee']) && isset($_POST['reviewer'])) {
     require 'db.hndlr.php';
 
@@ -93,7 +92,7 @@ if (isset($_POST['testee']) && isset($_POST['reviewer'])) {
     $param = [];
     $stmnt = "INSERT INTO test_results (u_id, rvwr_id, qstn_id, answer) VALUES (?, ?, ?, ?)";
 
-    for ($i=0; $i < (count($answers) - 1); $i++) {
+    for ($i = 0; $i < (count($answers) - 1); $i++) {
         $stmnt .= ", (?, ?, ?, ?)";
     }
 
@@ -118,5 +117,4 @@ if (isset($_POST['testee']) && isset($_POST['reviewer'])) {
         $db->rollBack();
         echo "err:save";
     }
-
 }

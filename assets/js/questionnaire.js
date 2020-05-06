@@ -122,7 +122,7 @@ $(function () {
         success: function (res) {
           switch (res) {
             case 'true':
-              SuccessModal('Submitted. Loading results, please wait...', 0, 5000);
+              SuccessModal('Submitted. Loading results, please wait...', 0, 0, 5000);
               $('#SuccessModal').on('hidden.bs.modal', function () {
                 window.location.href = 'result.php';
               });
@@ -161,13 +161,13 @@ function RenderList(selected_reviewer) {
 
           switch (true) {
             case !optD.match(regex) && !optD.match(regex):
-              optionC = `<label>
+              optionC = `<label class="radios">
                     <input type="radio" class="radio-inline choices" name="${el.question_id}" value="c">
                     <span class="outside default">
                         <span class="inside default"></span>
                     </span>C. &nbsp; ${el.optionC}
                 </label>`;
-              optionD = `<label>
+              optionD = `<label class="radios">
                     <input type="radio" class="radio-inline choices" name="${el.question_id}" value="d">
                     <span class="outside default">
                         <span class="inside default"></span>
@@ -175,7 +175,7 @@ function RenderList(selected_reviewer) {
                 </label>`;
               break;
             case !optC.match(regex):
-              optionC = `<label>
+              optionC = `<label class="radios">
                     <input type="radio" class="radio-inline choices" name="${el.question_id}" value="c">
                     <span class="outside default">
                         <span class="inside default"></span>
@@ -185,25 +185,26 @@ function RenderList(selected_reviewer) {
           }
 
           $('.items-container').append(`
-              <div class="row align-items-center box-shadow mx-5 mb-4">
-                <div class="m-3 wow fadeInUp" data-wow-delay="500ms">
-                <span class="h5 font-weight-bold">${idx + 1}.&ensp;${el.question}</span>
-                <label>
-                <input type="radio" class="radio-inline choices" name="${el.question_id}" value="a">
-                <span class="outside default">
-                    <span class="inside default"></span>
-                </span>A. &nbsp; ${el.optionA}
+          <div class="single-widget-area mb-30 box-shadow">
+            <div class="mx-3 py-3 wow fadeInUp" data-wow-delay="500ms">
+                <span class="h6 font-weight-bold">${idx + 1}.&nbsp;</span>
+                <span class="h5 font-weight-bold">${el.question}</span>
+                <label class="radios">
+                  <input type="radio" class="radio-inline choices" name="${el.question_id}" value="a">
+                  <span class="outside default">
+                      <span class="inside default"></span>
+                  </span>A. &nbsp; ${el.optionA}
                 </label>
-                <label>
-                    <input type="radio" class="radio-inline choices" name="${el.question_id}" value="b">
-                    <span class="outside default">
-                        <span class="inside default"></span>
-                    </span>B. &nbsp; ${el.optionB}
+                <label class="radios">
+                  <input type="radio" class="radio-inline choices" name="${el.question_id}" value="b">
+                  <span class="outside default">
+                      <span class="inside default"></span>
+                  </span>B. &nbsp; ${el.optionB}
                 </label>
                 ${optionC}
                 ${optionD}
-                </div>
-              </div>
+            </div>
+          </div>
           `);
         });
       } else {

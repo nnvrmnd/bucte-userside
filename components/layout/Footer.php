@@ -8,7 +8,7 @@
             <div class="col-12 col-sm-6 col-lg-3">
                <div class="single-footer-widget mb-80">
                   <!-- Footer Logo -->
-                  <a href="javascript:void(0)" class="footer-logo"><img src="./dist/img/core-img/cte2.png" alt=""></a>
+                  <a href="#" class="footer-logo"><img src="./dist/img/core-img/cte2.png" alt=""></a>
 
                   <h4>
                      <!-- <i class="icon_phone"></i> -->
@@ -33,14 +33,14 @@
 
                   <!-- Single Blog Area -->
                   <div class="latest-blog-area">
-                     <a href="javascript:void(0)" class="post-title">Freelance Design Tricks How</a>
+                     <a href="#" class="post-title">Freelance Design Tricks How</a>
                      <span class="post-date"><i class="fa fa-clock-o" aria-hidden="true"></i> Jan 02,
                         2019</span>
                   </div>
 
                   <!-- Single Blog Area -->
                   <div class="latest-blog-area">
-                     <a href="javascript:void(0)" class="post-title">Free Advertising For Your Online</a>
+                     <a href="#" class="post-title">Free Advertising For Your Online</a>
                      <span class="post-date"><i class="fa fa-clock-o" aria-hidden="true"></i> Jan 02,
                         2019</span>
                   </div>
@@ -79,7 +79,7 @@
                   <span>Subscribe our newsletter gor get notification about new updates.</span>
 
                   <!-- Newsletter Form -->
-                  <form action="index.html" class="nl-form">
+                  <form action="index.php" class="nl-form">
                      <input type="email" class="form-control" placeholder="Enter your email...">
                      <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                   </form>
@@ -109,7 +109,7 @@
             <div class="col-12 col-md-4">
                <!-- Social Info -->
                <div class="social-info">
-                  <a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                </div>
             </div>
          </div>

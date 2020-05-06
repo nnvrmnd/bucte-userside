@@ -15,7 +15,7 @@ if (isset($_POST['exp']) && isset($_POST['sig'])) {
       exit("!signature");
    }
 
-   $stmnt = "SELECT * FROM user WHERE BINARY email = ? AND account_status = 0 ;";
+   $stmnt = "SELECT * FROM user WHERE BINARY email = ? AND account_status = '0' ;";
    $query = $db->prepare($stmnt);
    $param = [$passed_email];
    $query->execute($param);

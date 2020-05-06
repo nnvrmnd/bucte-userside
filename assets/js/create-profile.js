@@ -25,6 +25,7 @@ $(function () {
             break;
 
          default:
+            WaitModal();
             // SuccessModal('Your account has been created.', 'login.php', 5000);
             $.ajax({
                type: 'POST',
@@ -33,7 +34,7 @@ $(function () {
                success: function (res) {
                   if (res.match(regex)) {
                      let unverified = res;
-                     WaitModal();
+
                      $.post('./assets/hndlr/CreateProfile.php', {
                         unverified
                      }, function (response) {

@@ -9,7 +9,9 @@ use PHPMailer\PHPMailer\Exception;
 
 function VerificationEmail($email, $expiration, $signature) {
 
-   $domain = "http://localhost/app/bucte/";
+   // $server_url . dirname($_SERVER['PHP_SELF'], 2)
+   $server_url = $_SERVER["SERVER_NAME"];
+   $domain = $server_url . "/bucte/";
    $verification_link = $domain . "login.php?email=" . str_replace("@", "%40", $email);
    $verification_link .= "&exp=" . $expiration;
    $verification_link .= "&sig=" . md5($signature);
@@ -25,7 +27,7 @@ function VerificationEmail($email, $expiration, $signature) {
       $mail->Port       = "465";
       $mail->SMTPAuth   = true;
       $mail->Username   = "suterusu.naito@gmail.com";
-      $mail->Password   = "iliketisay";
+      $mail->Password   = "PASSWORD__HERE";
 
       //Recipients
       $mail->setFrom("donotreply@bicol-u.edu.ph", "BU Center for Teaching Excellence");

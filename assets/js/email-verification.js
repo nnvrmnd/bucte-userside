@@ -2,11 +2,11 @@
 
 $(function() {
   let ctrl = true,
-    form = $('#verification_form').serialize();
-  (input0 = $('[name="email"]').val()),
-  (input1 = $('[name="exp"]').val()),
-  (input2 = $('[name="sig"]').val()),
-  (regex = /^\s*$/);
+    form = $('#verification_form').serialize(),
+    input0 = $('[name="email"]').val(),
+    input1 = $('[name="exp"]').val(),
+    input2 = $('[name="sig"]').val(),
+    regex = /^\s*$/;
 
   switch (false) {
     case !input0.match(regex):

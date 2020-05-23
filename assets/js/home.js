@@ -30,6 +30,7 @@ $(function () {
         .forEach((el) => {
           let cipherData = cipher(el.evnt_id.toString());
           let link = `./article.php?event=${cipherData}`;
+          console.log(cipherData)
           $('div[id*=events]').prepend(
             `<div class="col-12 col-md-6 col-lg-4">
                 <div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms">

@@ -15,7 +15,7 @@ SeshStart('page');
     <?php include './components/layout/Topnav.php'; ?>
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(./dist/img/bg-img/17.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(./dist/img/bg-img/bu-clear.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -39,127 +39,12 @@ SeshStart('page');
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
-
                     <!-- Single Blog Post Area -->
-                    <div class="single-blog-post d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="./dist/img/bg-img/24.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <!-- Post Meta -->
-                            <div class="post-meta">
-                                <a href="#" class="post-author">Jan 02, 2019</a>
-                                <a href="#" class="post-tutorial">Event</a>
-                            </div>
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">Cdc Issues Health Alert Notice For Travelers To Usa From
-                                Hon</a>
-                            <p>A round-the-world trip remains the world’s greatest journey. For two out of every three
-                                people, this is the ultimate travel experience, according to recent research...</p>
-                            <a href="#" class="btn continue-btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post Area -->
-                    <div class="single-blog-post d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="200ms">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="./dist/img/bg-img/25.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <!-- Post Meta -->
-                            <div class="post-meta">
-                                <a href="#" class="post-author">Jan 04, 2019</a>
-                                <a href="#" class="post-tutorial">Event</a>
-                            </div>
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">How To Boost Your Traffic Of Your Blog And Destroy The
-                                Competition</a>
-                            <p>Businesses such as GuideMeGreen and the co-op offer a real alternative for people
-                                concerned with these issues and with businesses that combine a strong ethical dimension
-                                in tandem with making profits...</p>
-                            <a href="#" class="btn continue-btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post Area -->
-                    <div class="single-blog-post d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="./dist/img/bg-img/26.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <!-- Post Meta -->
-                            <div class="post-meta">
-                                <a href="#" class="post-author">Jan 09, 2019</a>
-                                <a href="#" class="post-tutorial">Event</a>
-                            </div>
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">Global Travel And Vacations Luxury Travel On A Tight
-                                Budget</a>
-                            <p>Life is hectic; it’s true. There are so many things that demand your time and attention.
-                                Between work, kids, family and household chores, there is precious little time left over
-                                for you.</p>
-                            <a href="#" class="btn continue-btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post Area -->
-                    <div class="single-blog-post d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="400ms">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="./dist/img/bg-img/27.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <!-- Post Meta -->
-                            <div class="post-meta">
-                                <a href="#" class="post-author">Jan 22, 2019</a>
-                                <a href="#" class="post-tutorial">Event</a>
-                            </div>
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">Will The Democrats Be Able To Reverse The Online Gambling
-                                Ban</a>
-                            <p>Everyone loves good, old fashioned charcoal grilling. Aside from being cheaper than other
-                                grilling methods, it adds a raw, distinctive taste to your sausages, burgers, ribs, and
-                                other grilled items.</p>
-                            <a href="#" class="btn continue-btn">Read More</a>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post Area -->
-                    <div class="single-blog-post d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="./dist/img/bg-img/28.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <!-- Post Meta -->
-                            <div class="post-meta">
-                                <a href="#" class="post-author">Jan 29, 2019</a>
-                                <a href="#" class="post-tutorial">Event</a>
-                            </div>
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">Les Houches The Hidden Gem Of The Chamonix Valley</a>
-                            <p>Las Vegas has more than 100,000 hotel rooms to choose from. There is something for every
-                                budget, and enough entertainment within walking distance to keep anyone occupied for
-                                months.</p>
-                            <a href="#" class="btn continue-btn">Read More</a>
-                        </div>
-                    </div>
-
+                    <div id="events"></div>
                     <!-- Pagination -->
                     <nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="600ms">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next <i
+                        <ul class="pagination" style="display: flex; flex-wrap: wrap; justify-content: end;">
+                        <li class="page-item" id="nextNumber" style="margin: 1px"><a class="page-link" href="#">Next <i
                                         class="fa fa-angle-right"></i></a></li>
                         </ul>
                     </nav>
@@ -221,6 +106,12 @@ SeshStart('page');
 
     <!-- **** All JS Files ***** -->
     <?php include './components/layout/Scripts.php'; ?>
+    <script src="./assets/js/jquery.timeago.js" type="text/javascript"></script>
+    <script src="./assets/js/aes.encryption.js" type="text/javascript"></script>
+	<script src="./assets/js/config.js" type="text/javascript"></script>
+    <script src="./assets/js/rightbar.js" type="text/javascript"></script>
+    <script src="./assets/js/events.js" type="text/javascript"></script>
+    
 </body>
 
 </html>

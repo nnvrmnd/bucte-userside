@@ -15,7 +15,7 @@ SeshStart('page');
     <?php include './components/layout/Topnav.php'; ?>
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(./dist/img/bg-img/17.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(./dist/img/bg-img/bu-dim.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -50,57 +50,19 @@ SeshStart('page');
                                         <i class="fa fa-eye fa-lg"></i> VISION:
                                     </b>
                                 </p>
-                                <p>A Center for Teaching Excellence that promotes innovative instructional practices.</p>
-
+                                <div id="vision"></div>
                                 <p class="mt-30">
                                     <b>
                                         <i class="fa fa-bullseye fa-lg"></i> MISSION:
                                     </b>
                                 </p>
-                                <p>The Center seeks to advance responsive, research-based, technology-enhanced, and outcomes-based teaching and learning practices.</p>
-
+                                <div id="mission"></div>
                                 <p class="mt-30">
                                     <b>
                                         <i class="fa fa-map-pin fa-lg"></i> OBJECTIVES:
                                     </b>
                                 </p>
-                                <ul>
-                                    <li>
-                                        <p>Offer quality professional development programs/projects and services to
-                                            Bicol University faculty as well as to educators and teachers in the Bicol
-                                            Region.</p>
-                                    </li>
-                                    <li>
-                                        <p>Conduct and/or assist in the conduct of researches or initiatives which aim
-                                            to inform, improve and innovate the teaching and learning practices.</p>
-                                    </li>
-                                    <li>
-                                        <p>Provide alternative academic support to students across levels and
-                                            disciplines, and to students in Teacher Education Programs both in the
-                                            undergraduate and graduate levels along research and instructional practices
-                                            in collaboration with the Graduate School and the College of Education.</p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Work collaboratively with the relevant centers and offices in the University
-                                            in offering blended learning programs to both faculty and Teacher Education
-                                            students.
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>Engage in partnership with colleges or units of the University in order to
-                                            establish faculty learning communities to strengthen sharing of good
-                                            practices.</p>
-                                    </li>
-                                    <li>
-                                        <p>Establish a regional consortium which will focus on the integration of
-                                            research and academic practices.</p>
-                                    </li>
-                                    <li>
-                                        <p>Promote excellence in teaching through scholarly undertakings in Bicol
-                                            University and beyond through trainings, seminars or conferences.</p>
-                                    </li>
-                                </ul>
+                                <div id="obj"></div>
                             </div>
                         </div>
                     </div>
@@ -163,6 +125,11 @@ SeshStart('page');
     <!-- **** All JS Files ***** -->
     <?php include './components/layout/Scripts.php'; ?>
     <script src="./assets/js/reviewer.js"></script>
+    <script src="./assets/js/jquery.timeago.js" type="text/javascript"></script>
+    <script src="./assets/js/aes.encryption.js" type="text/javascript"></script>
+	<script src="./assets/js/config.js" type="text/javascript"></script>
+    <script src="./assets/js/rightbar.js" type="text/javascript"></script>
+    <script src="./assets/js/about.js" type="text/javascript"></script>
 </body>
 
 </html>

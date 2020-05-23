@@ -106,3 +106,9 @@ img.card-img-top,
 .btn {
   border-radius: 2px;
 }
+
+.overlap-text  p{
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -28,17 +28,17 @@ $(function(){
                      .prepend(`<div class="single-blog-post d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Post Thumbnail -->
                         <div class="post-thumbnail">
-                            <a href="#"><img src="./files/events/${el.image}" alt=""></a>
+                            <a href="${link}"><img src="./files/events/${el.image}" alt=""></a>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
                             <!-- Post Meta -->
                             <div class="post-meta">
-                                <a href="#" class="post-author">${formatted_date}</a>
-                                <a href="#" class="post-tutorial">${el.title}</a>
+                                <a href="${link}" class="post-author">${formatted_date}</a>
+                                <a href="${link}" class="post-tutorial">${el.title}</a>
                             </div>
                             <!-- Post Title -->
-                            <a href="#" class="post-title">${el.title}</a>
+                            <a href="" class="post-title">${el.title}</a>
                             <div class="overlap-text">${el.description}</div>
                             <a href="${link}" class="btn continue-btn">Read More</a>
                         </div>

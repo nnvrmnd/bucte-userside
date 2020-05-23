@@ -86,8 +86,7 @@ $(function () {
                                 </div>
                                 <!-- Post Title -->
                                 <a href="${link}" class="post-title">${el.title}</a>
-                                <a href="${link}" class="btn continue-btn" data-toggle="modal" data-target="#details">Read
-                                    details</a>
+                                <a href="${link}" class="btn continue-btn">Read details</a>
                             </div>
                         </div>
                     </div>

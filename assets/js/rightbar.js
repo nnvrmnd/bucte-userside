@@ -7,17 +7,16 @@ $(function () {
         currentDate.getDate() +
         currentDate.getFullYear(),
       dateArray = [];
-
-    arrayData.forEach((el) => {
-      let date = el.end_date.split(' ')[0].split('/'),
-        dateM = date[0],
-        dateD = date[1],
-        dateY = date[2];
-      dateFormat = dateM + dateD + dateY;
-      dateFormat >= formatCRDate && dateArray.push(el);
-    });
+    // arrayData.forEach((el) => {
+    //   let date = el.end_date.split(' ')[0].split('/'),
+    //     dateM = date[0],
+    //     dateD = date[1],
+    //     dateY = date[2];
+    //   dateFormat = dateM + dateD + dateY;
+    //   dateFormat < formatCRDate && dateArray.push(el);
+    // });
     //EVENTS
-    dateArray
+    arrayData
       .slice(0, 4)
       .sort((a, b) => {
         b.end_date - a.end_date;

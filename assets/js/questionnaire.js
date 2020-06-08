@@ -1,4 +1,4 @@
-'use_strict';
+
 
 /* Commons */
 let lvl_sesh = sessionStorage.getItem('lvl'),

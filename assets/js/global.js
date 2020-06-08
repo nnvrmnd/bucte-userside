@@ -1,4 +1,4 @@
-'use_strict';
+
 
 $(function () {
    /* replace all anchortag with # -> javascript:void(0) */

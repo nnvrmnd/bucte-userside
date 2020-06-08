@@ -19,7 +19,7 @@ $(function () {
           dateD = date[1],
           dateY = date[2];
         dateFormat = dateM + dateD + dateY;
-        dateFormat >= formatCRDate && dateArray.push(el);
+        dateFormat <= formatCRDate && dateArray.push(el);
       });
       //EVENTS
       dateArray
@@ -30,7 +30,6 @@ $(function () {
         .forEach((el) => {
           let cipherData = cipher(el.evnt_id.toString());
           let link = `./article.php?event=${cipherData}`;
-          console.log(cipherData)
           $('div[id*=events]').prepend(
             `<div class="col-12 col-md-6 col-lg-4">
                 <div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms">
@@ -54,8 +53,16 @@ $(function () {
             </div>`
           );
         });
+
+      dateArray.length == 0 &&
+        $('div[id*=events]').prepend(`
+              <div style="width: 100%;text-align: center;padding: 5%;font-size: 130%;margin-bottom: 60px;border: 2px solid rgba(42, 48, 59, 0.22);border-radius: 40px 40px 40px 40px;color: #1cb6a8;">
+                There are no upcoming events at this time...
+              </div>
+          `);
+
       //SINGLE EVENT(UPPER HEADER)
-      dateArray
+      arrayData
         .slice(0, 1)
         .sort((a, b) => {
           b.end_date - a.end_date;
@@ -91,7 +98,7 @@ $(function () {
                         </div>
                     </div>
                     <div class="col-12 col-md-4 col-lg-3">${register}</div>`);
-        });
+        }) 
     }
   );
 
@@ -124,7 +131,7 @@ $(function () {
       //For Testing
       //tmp.splice(2,1)
       //tmp.splice(1,1)
-
+      
       //for future use in the image divs design
       const imageArray1 = ['image-1', 'image-2'],
         imageArray2 = ['image-3'];
@@ -162,7 +169,6 @@ $(function () {
         if (filterAr1.length > 0) {
           filterAr1.forEach((el) => {
             let imageNumber = el.image.split('-')[1];
-            console.log(el.folder);
             $(`img[id*=image${imageNumber}]`).attr('src', el.folder);
           });
         } else {

@@ -28,7 +28,7 @@ if (isset($_GET['email']) && isset($_GET['exp']) && isset($_GET['sig'])) {
     <?php include './components/layout/Topnav.php'; ?>
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(./dist/img/bg-img/17.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(./dist/img/bg-img/bu-dim.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">

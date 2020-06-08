@@ -20,12 +20,11 @@ SeshStart('page');
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">E-LET Reviewer List</h2>
+                        <h2 class="page-title">Learning Resources</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="#">Library</a></li>
-                                <li class="breadcrumb-item"><a href="./reviewer.php">Reviewer</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">List</li>
+                                <li class="breadcrumb-item active"><a href="./reviewer.php">Learning Resources</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -42,9 +41,9 @@ SeshStart('page');
                 <div class="col-12 col-lg-8 ">
                     <!-- MAIN CONTENT HERE -->
                     <div class="single-widget-area mb-100">
-                        <h4 class="widget-title mb-30 list-title"></h4>
+                        <h4 class="widget-title mb-30">Downloadables</h4>
 
-                        <div class="reviewers-container">
+                        <div class="resources-container">
                             <!-- <div class="single-recent-post d-flex">
                                 <div class="post-thumb">
                                     <a href="#"><img src="./dist/img/bg-img/29.jpg" alt=""></a>
@@ -119,7 +118,7 @@ SeshStart('page');
 
     <!-- **** All JS Files ***** -->
     <?php include './components/layout/Scripts.php'; ?>
-    <script src="./assets/js/reviewer-list.js"></script>
+    <script src="./assets/js/library.js"></script>
 </body>
 
 </html>

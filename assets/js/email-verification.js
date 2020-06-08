@@ -1,4 +1,4 @@
-'use_strict';
+
 
 $(function() {
   let ctrl = true,

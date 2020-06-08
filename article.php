@@ -15,7 +15,7 @@ SeshStart('page');
 	<?php include './components/layout/Topnav.php'; ?>
 
 	<!-- Breadcrumb Area Start -->
-	<div class="breadcrumb-area bg-img bg-overlay jarallax" id="event_image" >
+	<div class="breadcrumb-area bg-img bg-overlay jarallax" id="event_image">
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
@@ -105,11 +105,7 @@ SeshStart('page');
 
 	<!-- **** All JS Files ***** -->
 	<?php include './components/layout/Scripts.php'; ?>
-	<script src="./assets/js/jquery.timeago.js" type="text/javascript"></script>
-    <script src="./assets/js/aes.encryption.js" type="text/javascript"></script>
-	<script src="./assets/js/config.js" type="text/javascript"></script>
-	<script src="./assets/js/rightbar.js" type="text/javascript"></script>
-    <script src="./assets/js/article.js" type="text/javascript"></script>
+	<script src="./assets/js/article.js" type="text/javascript"></script>
 </body>
 
 </html>

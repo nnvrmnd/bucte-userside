@@ -107,8 +107,14 @@ img.card-img-top,
   border-radius: 2px;
 }
 
-.overlap-text  p{
+.overlap-text  p {
   white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+#rightbar_event  img {
+  height: 70px;
+	width: 100%;
+	max-width: 300px;
 }

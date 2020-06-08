@@ -1,4 +1,4 @@
-'use_strict';
+
 
 /* Commons */
 let lvl_sesh = sessionStorage.getItem('lvl'),
@@ -6,6 +6,8 @@ let lvl_sesh = sessionStorage.getItem('lvl'),
 
 /* Triggers */
 $(function() {
+	$('.rb-elet').addClass('d-none');
+
   /* Select level */
   $('.level').click(function(e) {
     e.preventDefault();

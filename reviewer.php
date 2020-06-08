@@ -15,7 +15,7 @@ SeshStart('page');
     <?php include './components/layout/Topnav.php'; ?>
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(./dist/img/bg-img/17.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(./dist/img/bg-img/bu-dim.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -23,7 +23,7 @@ SeshStart('page');
                         <h2 class="page-title">E-LET Reviewer</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Library</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Reviewer</li>
                             </ol>
                         </nav>
@@ -157,7 +157,7 @@ SeshStart('page');
     <?php include './components/layout/Footer.php'; ?>
 
     <!-- **** All JS Files ***** -->
-    <?php include './components/layout/Scripts.php'; ?>
+		<?php include './components/layout/Scripts.php'; ?>
     <script src="./assets/js/reviewer.js"></script>
 </body>
 

@@ -1,4 +1,4 @@
-'use_strict';
+
 
 $(function () {
    $('#newprofile_form').submit(function (e) {

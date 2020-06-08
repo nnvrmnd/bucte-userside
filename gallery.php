@@ -6,8 +6,16 @@ SeshStart('page');
 <html lang="en">
 
 <head>
-	<title>About Us | BUCTE</title>
+	<title>E-LET Reviewer List | BUCTE</title>
 	<?php include './components/layout/Head.php'; ?>
+	<link rel="stylesheet" href="./dist/css/jquery.fancybox.min.css">
+	<style>
+		.gallery-container img {
+			height: 150px;
+			width: auto;
+			max-width: 500px;
+		}
+	</style>
 </head>
 
 <body>
@@ -21,11 +29,11 @@ SeshStart('page');
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
 					<div class="breadcrumb-content text-center">
-						<h2 class="page-title">About Us</h2>
+						<h2 class="page-title">Gallery</h2>
 						<!-- <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                <li class="breadcrumb-item active"><a href="./reviewer.php">Learning Resources</a></li>
                             </ol>
                         </nav> -->
 					</div>
@@ -41,33 +49,20 @@ SeshStart('page');
 			<div class="row justify-content-center">
 				<div class="col-12 col-lg-8 ">
 					<!-- MAIN CONTENT HERE -->
-					<div class="single-widget-area mb-100 box-shadow">
-						<div class="list-area">
-							<h5 class="mb-40">Vision, Mission, and Objectives:</h5>
-							<p class="d-none">Subscribe our newsletter gor get notification new updates.</p>
-							<div style="margin-left: 4%">
-								<p class="mt-30">
-									<b>
-										<i class="fa fa-eye fa-lg"></i> VISION:
-									</b>
-								</p>
-								<div id="vision"></div>
-								<p class="mt-30">
-									<b>
-										<i class="fa fa-bullseye fa-lg"></i> MISSION:
-									</b>
-								</p>
-								<div id="mission"></div>
-								<p class="mt-30">
-									<b>
-										<i class="fa fa-map-pin fa-lg"></i> OBJECTIVES:
-									</b>
-								</p>
-								<div id="obj"></div>
-							</div>
-						</div>
+					<div class="single-widget-area mb-100">
+						<!-- <h4 class="widget-title mb-30"></h4> -->
+						<ul class="instagram-feeds gallery-container">
+							<!-- <li><a href="#"><img src="img/bg-img/33.jpg" alt=""></a></li>
+							<li><a href="#"><img src="img/bg-img/34.jpg" alt=""></a></li>
+							<li><a href="#"><img src="img/bg-img/35.jpg" alt=""></a></li>
+							<li><a href="#"><img src="img/bg-img/36.jpg" alt=""></a></li>
+							<li><a href="#"><img src="img/bg-img/37.jpg" alt=""></a></li>
+							<li><a href="#"><img src="img/bg-img/38.jpg" alt=""></a></li> -->
+						</ul>
 					</div>
 				</div>
+
+
 
 				<!-- Right bar -->
 				<?php include './components/layout/Rightbar.php';?>
@@ -125,7 +120,8 @@ SeshStart('page');
 
 	<!-- **** All JS Files ***** -->
 	<?php include './components/layout/Scripts.php'; ?>
-	<script src="./assets/js/about.js" type="text/javascript"></script>
+	<script src="./dist/js/jquery.fancybox.min.js"></script>
+	<script src="./assets/js/gallery.js"></script>
 </body>
 
 </html>

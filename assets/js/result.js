@@ -1,5 +1,3 @@
-
-
 /* Commons */
 let lvl_sesh = sessionStorage.getItem('lvl'),
   rvwr_sesh = sessionStorage.getItem('rvwr'),
@@ -7,7 +5,7 @@ let lvl_sesh = sessionStorage.getItem('lvl'),
   current_testee = '';
 
 /* Triggers */
-$(function() {
+$(function () {
   /* Change page title */
   if (rvwr_sesh != null && rvwr_sesh != 'undefined') {
     $('[name="reviewer"]').val(rvwr_sesh);
@@ -23,9 +21,9 @@ $(function() {
       './assets/hndlr/Result.php',
       {
         iftaken: rvwr_sesh,
-        testee: current_testee
+        testee: current_testee,
       },
-      function(res) {
+      function (res) {
         if (res == 'taken') {
           RenderList(rvwr_sesh, current_testee);
           Scores(rvwr_sesh, current_testee);
@@ -37,7 +35,7 @@ $(function() {
   }, 1000);
 
   /* Retake test */
-  $('#retake_btn').click(function(e) {
+  $('#retake_btn').click(function (e) {
     e.preventDefault();
 
     PromptModal(
@@ -50,7 +48,7 @@ $(function() {
     );
   });
 
-  $('#yes_prompt').click(function(e) {
+  $('#yes_prompt').click(function (e) {
     e.preventDefault();
     let retake = $(this).attr('data-target-1'),
       testee = $(this).attr('data-target-2');
@@ -59,11 +57,11 @@ $(function() {
       './assets/hndlr/Result.php',
       {
         retake,
-        testee
+        testee,
       },
-      function(res) {
+      function (res) {
         if (res == 'true') {
-          SuccessModal('Loading questionnaire.', 'questionnaire.php', 0, 5000);
+          SuccessModal('Loading questionnaire.', 5000, 'questionnaire.php');
         } else {
           console.log('ERR', res);
         }
@@ -80,11 +78,11 @@ function RenderList(selected_reviewer, testee) {
     './assets/hndlr/Result.php',
     {
       selected_reviewer,
-      testee
+      testee,
     },
-    function(res) {
+    function (res) {
       if (res != 'err:fetch') {
-        $.each(JSON.parse(res), function(idx, el) {
+        $.each(JSON.parse(res), function (idx, el) {
           if (!res.match(/\b(\w*err\w*)\b/g)) {
             let regex = /^\s*$/,
               optC = el.optionC,
@@ -189,11 +187,11 @@ function Scores(result, testee) {
     './assets/hndlr/Result.php',
     {
       result,
-      testee
+      testee,
     },
-    function(res) {
+    function (res) {
       if (res != 'err:fetch') {
-        $.each(JSON.parse(res), function(idx, el) {
+        $.each(JSON.parse(res), function (idx, el) {
           if (!res.match(/\b(\w*err\w*)\b/g)) {
             $('#results_list').append(`
           <tr>

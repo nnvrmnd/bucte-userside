@@ -4,7 +4,7 @@ let lvl_sesh = sessionStorage.getItem('lvl'),
 
 /* Fetch reviewers' list */
 function RenderList(selected_level) {
-	$('.rb-elet').addClass('d-none');
+  $('.rb-elet').addClass('d-none');
 
   $.post(
     './assets/hndlr/Reviewer.php',

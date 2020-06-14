@@ -36,7 +36,7 @@ if (isset($_GET['email']) && isset($_GET['exp']) && isset($_GET['sig'])) {
                         <h2 class="page-title">Login</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="./">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Login Page</li>
                             </ol>
                         </nav>
@@ -51,13 +51,7 @@ if (isset($_GET['email']) && isset($_GET['exp']) && isset($_GET['sig'])) {
     <div class="roberto-news-area section-padding-100-0">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-1">
-                    <form class="d-none" id="verification_form">
-                        <input type="password" name="email" value="<?=$val0?>">
-                        <input type="password" name="exp" value="<?=$val1?>">
-                        <input type="password" name="sig" value="<?=$val2?>">
-                    </form>
-                </div>
+                <div class="col-12 col-lg-1"></div>
 
                 <div class="col-12 col-lg-6">
                     <!-- Form -->

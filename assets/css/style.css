@@ -109,8 +109,8 @@ img.card-img-top,
 
 .overlap-text  p {
   white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #rightbar_event  img {

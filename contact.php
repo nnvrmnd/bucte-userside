@@ -23,7 +23,7 @@ SeshStart('page');
                         <h2 class="page-title">Contact Us</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="./">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
                             </ol>
                         </nav>
@@ -44,7 +44,7 @@ SeshStart('page');
                         <div class="single-contact-info">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             <h4>Phone</h4>
-                            <p>+01-234-567-890</p>
+                            <p>(052) 742-1909</p>
                         </div>
                     </div>
                     <!-- Single Contact Info -->
@@ -52,7 +52,7 @@ SeshStart('page');
                         <div class="single-contact-info">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <h4>Address</h4>
-                            <p>Iris Watson, 283 Fusce Rd,NY</p>
+                            <p>HERRC Bldg, Bicol University East Campus, Legazpi City</p>
                         </div>
                     </div>
                     <!-- Single Contact Info -->
@@ -60,7 +60,7 @@ SeshStart('page');
                         <div class="single-contact-info">
                             <i class="fa fa-clock-o" aria-hidden="true"></i>
                             <h4>Open time</h4>
-                            <p>10:00 am to 23:00 pm</p>
+                            <p>7:00 AM - 5:00 PM</p>
                         </div>
                     </div>
                     <!-- Single Contact Info -->
@@ -68,7 +68,7 @@ SeshStart('page');
                         <div class="single-contact-info">
                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
                             <h4>Email</h4>
-                            <p>Info.colorlib @gmail.com</p>
+                            <p>bu-cte@bicol-u.edu.ph</p>
                         </div>
                     </div>
                 </div>
@@ -83,8 +83,8 @@ SeshStart('page');
     <!-- Google Maps & Contact Info Area End -->
 
     <!-- Contact Form Area Start -->
-    <div class="roberto-contact-form-area section-padding-100">
-        <div class="container">
+    <div class="roberto-contact-form-area section-padding-100 ">
+        <div class="container d-none">
             <div class="row">
                 <div class="col-12">
                     <!-- Section Heading -->

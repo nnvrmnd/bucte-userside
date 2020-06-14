@@ -1,107 +1,149 @@
-
-
 $(function () {
-   $('#newprofile_form').submit(function (e) {
-      e.preventDefault();
+  $('#create_form').submit(function (e) {
+    e.preventDefault();
 
-      $([document.documentElement, document.body]).animate({
-         scrollTop: $('.main-card').offset().top
-      }, 500);
+    let form = $(this).serializeArray(),
+      formid = $(this).attr('id');
 
-      let form = $(this).serialize(),
-         regex = /\b(\w*CTE\w*)\b/g;
+    function Submit(createForm) {
+      return new Promise((resolve, reject) => {
+        WaitModal(10000);
 
-      switch (false) {
-         case ValidateRequired('newprofile_form', 'create_given'):
-         case ValidateRequired('newprofile_form', 'create_surname'):
-         case ValidateUsername('newprofile_form', 'create_username'):
-         case ValidateEmail('newprofile_form', 'create_email'):
-         case ValidatePassword('newprofile_form', 'create_password'):
-         case PasswordMatch(
-            'newprofile_form',
-            'create_password',
-            'create_password2'
-         ):
-            break;
+        $.ajax({
+          type: 'POST',
+          url: './assets/hndlr/CreateProfile.php',
+          data: createForm,
+          success: function (res) {
+            if (res.match(/\b(\w*CTE\w*)\b/g)) {
+              resolve(res);
+              // SuccessModal('Account created.', 5000);
+            } else {
+              reject({
+                where: 'Submit',
+                message: res,
+              });
+            }
+          },
+        });
+      });
+    }
 
-         default:
-            WaitModal();
-            // SuccessModal('Your account has been created.', 'login.php', 5000);
-            $.ajax({
-               type: 'POST',
-               url: './assets/hndlr/CreateProfile.php',
-               data: form,
-               success: function (res) {
-                  if (res.match(regex)) {
-                     let unverified = res;
+    function Unverified(id) {
+      return new Promise((resolve, reject) => {
+        $.ajax({
+          type: 'POST',
+          url: './assets/hndlr/CreateProfile.php',
+          data: { unverified: id },
+          success: function (res) {
+						console.log(res)
+            if (res == 'sent') {
+              resolve(res);
+							SuccessModal('Account created.', 5000);
+							$('#SuccessModal').on('hidden.bs.modal', function () {
+								window.location.href = '/app/';
+							});
+            } else {
+              reject({
+                where: 'Unverified',
+                message: res,
+              });
+            }
+          },
+        });
+      });
+    }
 
-                     $.post('./assets/hndlr/CreateProfile.php', {
-                        unverified
-                     }, function (response) {
-                        console.log(response)
-                        switch (response) {
-                           case 'sent':
-                              setTimeout(() => {
-                                 SuccessModal('A verification link has been sent to your email account.', 'index.php', 0, 10000);
-                              }, 5000);
-                              break;
+    async function Process(
+      formId,
+      usernameProp,
+      emailProp,
+      passProp,
+      repassProp,
+      createForm
+    ) {
+      try {
+        const usernameRes = await ValidateUsername(formId, usernameProp);
+        if (usernameRes == 'false') {
+          ScrollUp('.main-card');
+          return;
+        }
+        const emailRes = await ValidateEmail(formId, emailProp);
+        if (emailRes == 'false') {
+          ScrollUp('.main-card');
+          return;
+        }
+        const passwordRes = await ValidatePassword(
+          formId,
+          passProp,
+          repassProp
+        );
+        if (passwordRes == 'false') {
+          return;
+        }
+				const submitRes = await Submit(createForm);
+				const unverifiedRes = await Unverified(submitRes);
 
-                           default:
-                              setTimeout(() => {
-                                 ErrorModal(0, 0, 5000);
-                              }, 5000);
-                              console.log('ERR', response);
-                              break;
-                        }
-                     });
-                  } else {
-                     ErrorModal(0, 0, 5000);
-                     console.log('ERR', res);
-                  }
-               }
-            });
-            break;
+      } catch (e) {
+        console.error(`${e.where}\n${e.message}`);
+        ErrorModal(5000);
       }
-   });
-});
+    }
 
-function PasswordMatch(form_id, name1, name2) {
-   let ctrl = true,
-      formid = `form#${form_id} `,
-      name_attr1 = formid + `[name="${name1}"]`,
-      name_attr2 = formid + `[name="${name2}"]`,
-      input1 = $(name_attr1).val(),
-      input2 = $(name_attr2).val(),
-      match = input2.match(input1) ? true : false;
-
-   switch (false) {
-      case match:
-         $(name_attr1)
-            .removeClass('is-valid')
-            .addClass('is-invalid');
-         $(formid + 'small.' + name1)
-            .removeClass('text-success')
-            .addClass('text-danger')
-            .html("Passwords don't match.");
-         $(name_attr2)
-            .removeClass('is-valid')
-            .addClass('is-invalid');
-         ctrl = false;
-         break;
+    switch (false) {
+      case ValidateRequired(formid, 'create_given'):
+      case ValidateRequired(formid, 'create_surname'):
+        ScrollUp('.main-card');
+        break;
 
       default:
-         $(name_attr1)
-            .removeClass('is-invalid')
-            .addClass('is-valid');
-         $(formid + 'small.' + name1)
-            .removeClass('text-danger')
-            .addClass('text-success')
-            .html('');
-         $(name_attr2)
-            .removeClass('is-invalid')
-            .addClass('is-valid');
-         break;
-   }
+        Process(
+          formid,
+          'create_username',
+          'create_email',
+          'create_password',
+          'create_password2',
+          form
+        );
+        break;
+    }
+  });
+});
 
-   return ctrl;
+function ValidatePassword(formId, nameProp1, nameProp2) {
+  return new Promise((resolve, reject) => {
+    let ctrl = true,
+      $element1 = $(`#${formId} [name=${nameProp1}]`),
+      $element2 = $(`#${formId} [name=${nameProp2}]`),
+      input1 = $element1.val(),
+      input2 = $element2.val(),
+      $msg1 = $(`small.${nameProp1}`),
+			$msg2 = $(`small.${nameProp2}`),
+      regex = new RegExp(`\\b${input1}\\b`);
+
+    switch (true) {
+      case input1.length <= 4:
+        $element1.addClass('is-invalid');
+        $msg1
+          .removeClass('text-success')
+          .addClass('text-danger')
+          .html('Enter a combination of at least 5 characters.');
+        resolve('false');
+        break;
+      case !input2.match(regex):
+        $element1.addClass('is-invalid');
+        $element2.addClass('is-invalid');
+        $msg1.addClass('text-danger');
+        $msg2.addClass('text-danger').html('Passwords do not match.');
+        resolve('false');
+        break;
+
+      default:
+        $element1.removeClass('is-invalid');
+        $element2.removeClass('is-invalid');
+        $msg1.empty();
+        $msg2.empty();
+				resolve('true');
+        break;
+    }
+  });
 }

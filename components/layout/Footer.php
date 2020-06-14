@@ -66,7 +66,7 @@
 								<a href="./news.php"><i class="fa fa-caret-right" aria-hidden="true"></i> News</a>
 							</li>
 							<li>
-								<a href="./index.php"><i class="fa fa-caret-right" aria-hidden="true"></i> Home</a>
+								<a href="./"><i class="fa fa-caret-right" aria-hidden="true"></i> Home</a>
 							</li>
 						</ul>
 					</div>
@@ -97,7 +97,7 @@
 				<div class="col-12 col-md-8">
 					<!-- Copywrite Text -->
 					<div class="copywrite-text">
-						<p>
+						<p class="d-none">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy;<script>
 								document.write(new Date().getFullYear());

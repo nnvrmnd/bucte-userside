@@ -9,7 +9,7 @@
 	<!-- Search Form -->
 	<div class="search-form d-flex align-items-center">
 		<div class="container">
-			<form action="./index.php" method="get">
+			<form action="./" method="get">
 				<input type="search" name="search-form-input" id="searchFormInput" placeholder="Type your keyword ...">
 				<button type="submit"><i class="icon_search"></i></button>
 			</form>
@@ -54,7 +54,7 @@
 				<nav class="classy-navbar justify-content-between" id="robertoNav">
 
 					<!-- Logo -->
-					<a class="nav-brand" href="./index.php"><img src="./dist/img/core-img/cte.png" alt=""></a>
+					<a class="nav-brand" href="./"><img src="./dist/img/core-img/cte.png" alt=""></a>
 
 					<!-- Navbar Toggler -->
 					<div class="classy-navbar-toggler">
@@ -70,7 +70,7 @@
 						<!-- Nav Start -->
 						<div class="classynav">
 							<ul id="nav">
-								<li class="active"><a href="./index.php">Home</a></li>
+								<li class="active"><a href="./">Home</a></li>
 								<li><a href="./events.php">Events</a></li>
 								<li><a href="#" class="default-pointer-here">Library</a>
 									<ul class="dropdown">

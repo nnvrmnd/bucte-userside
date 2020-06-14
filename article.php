@@ -8,6 +8,16 @@ SeshStart('page');
 <head>
 	<title>Article | BUCTE</title>
 	<?php include './components/layout/Head.php'; ?>
+	<style>
+		#event-image {
+			height: 400px;
+			width: 100%;
+		}
+
+		.single-room-details-area ul li {
+			margin-bottom: 0px !important;
+		}
+	</style>
 </head>
 
 <body>
@@ -15,17 +25,17 @@ SeshStart('page');
 	<?php include './components/layout/Topnav.php'; ?>
 
 	<!-- Breadcrumb Area Start -->
-	<div class="breadcrumb-area bg-img bg-overlay jarallax" id="event_image">
+	<div class="breadcrumb-area bg-img bg-overlay jarallax"
+		style="background-image: url(./dist/img/bg-img/bu-dim.jpg);">
 		<div class="container h-100">
 			<div class="row h-100 align-items-center">
 				<div class="col-12">
 					<div class="breadcrumb-content text-center">
-						<h2 class="page-title" id="page-title"></h2>
+						<h2 class="page-title event-title"></h2>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb justify-content-center">
-								<li class="breadcrumb-item"><a href="./index.php">Home</a></li>
 								<li class="breadcrumb-item"><a href="./events.php">Events</a></li>
-								<li class="breadcrumb-item active" id="page-title" aria-current="page">Event Title</li>
+								<li class="breadcrumb-item active" id="page-title" aria-current="page">Article</li>
 							</ol>
 						</nav>
 					</div>
@@ -43,10 +53,18 @@ SeshStart('page');
 
 					<!-- Post Thumbnail -->
 					<div class="post-thumbnail mb-50">
-						<!-- <img src="./dist/img/bg-img/39.jpg" alt=""> -->
+						<img class="event-image" alt="Event thumbnail">
 					</div>
-					<!-- Blog Details Text -->
-					<div class="blog-details-text mb-100" style="overflow-wrap: break-word;"></div>
+
+					<div class="single-blog-post mb-50 event-title2"></div>
+
+					<div class="single-blog-post mb-50 event-details"></div>
+
+					<div class="blog-details-text mb-100 event-body" style="overflow-wrap: break-word;"></div>
+
+					<div class="single-widget-area mb-100 event-join">
+
+					</div>
 				</div>
 
 				<!-- Right bar -->

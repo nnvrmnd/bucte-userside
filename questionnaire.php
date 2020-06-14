@@ -30,7 +30,7 @@ SeshStart('restricted');
                         <h2 class="page-title">E-LET Questionnaire</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="./">Home</a></li>
                                 <li class="breadcrumb-item"><a href="./reviewer.php">Reviewer</a></li>
                                 <li class="breadcrumb-item"><a href="./reviewer-list.php">List</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Questionnaire</li>

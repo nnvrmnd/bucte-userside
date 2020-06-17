@@ -82,7 +82,7 @@
 								<li><a href="./gallery.php">Gallery</a></li>
 								<li><a href="./contact.php">Contact</a></li>
 								<li id="login_li">
-									<a href="#" class="default-pointer-here" id="login">Login</a>
+									<a href="#" class="pointer-here" id="login">Login</a>
 									<ul class="dropdown d-none">
 										<li><a href="#">My profile</a></li>
 										<li><a href="#" id="logout">Logout</a></li>

@@ -34,33 +34,40 @@ function RenderList() {
           } else {
             return -1;
           }
-				});
-
-				console.log(resources)
+        });
 
         $.each(resources, function (idx, el) {
-					let attachment_title = el.title,
-						attachment_format = el.attachment,
-						attachment_filename,
-						uploaded_date,
-						uploaded_time,
-						uploaded_at;
+          let attachment_title = el.title,
+            attachment_format = el.attachment,
+            attachment_filename,
+            description = el.description,
+            uploaded_date,
+            uploaded_time,
+            uploaded_at;
 
-					attachment_title = attachment_title.replace(/[^A-Za-z0-9_.-]/g, '_');
-					attachment_format = attachment_format.split('.');
-					attachment_filename = `${attachment_title}.${attachment_format[1]}`;
+					description = !description.match(/^\s*$/)
+					? `&ndash; ${el.description}`
+					: '<i><small>No description...</small></i>',
 
-					$('.resources-container').append(`
-					<div class="single-recent-post d-flex pointer-here reviewer" data-target="${el.reviewer_id}">
+          attachment_title = attachment_title.replace(/[^A-Za-z0-9_.-]/g, '_');
+          attachment_format = attachment_format.split('.');
+          attachment_filename = `${attachment_title}.${attachment_format[1]}`;
+
+          $('.resources-container').append(`
+					<div class="single-recent-post d-flex pointer-here reviewer" data-target="${
+            el.reviewer_id
+          }">
 						<div class="post-thumb">
-							<a href="javascript:void(0)"><img src="./assets/img/file_format/${file_format(el.format)}" alt="File format"></a>
+							<a href="javascript:void(0)"><img src="./assets/img/file_format/${file_format(
+                el.format
+              )}" alt="File format"></a>
 						</div>
 						<div class="post-content">
 							<a href="javascript:void(0)" class="font-weight-bold post-title mb-2" style="font-size:18px">
 									${el.title}
 							</a>
-							<p class="mb-0">&ndash; ${el.description}</p>
-							<a href="./files/library/${el.attachment}" download="${attachment_filename}" class="btn btn-sm btn-link float-right">Download</a>
+							<p class="mb-0">${description}</p>
+							<a href="./files/library/${el.attachment}" download="${attachment_filename}" class="btn btn-sm btn-link ">Download</a>
 						</div>
 					</div>
 					`);

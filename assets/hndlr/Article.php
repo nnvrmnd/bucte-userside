@@ -1,12 +1,13 @@
 <?php
 
+/* Join event */
 if (isset($_POST['participant']) && isset($_POST['event'])) {
 	require './db.hndlr.php';
 
 	$event = $_POST['event'];
 	$participant = Participant($_POST['participant']);
 
-	if (Joined($participant) === true) {
+	if (Joined($participant, $event) === true) {
 		$db->beginTransaction();
 		$stmnt = 'INSERT INTO event_participants (evnt_id, u_id) VALUES (?, ?) ;';
 		$query = $db->prepare($stmnt);
@@ -25,6 +26,20 @@ if (isset($_POST['participant']) && isset($_POST['event'])) {
 	}
 }
 
+if (isset($_POST['ratee']) && isset($_POST['event'])) {
+	require './db.hndlr.php';
+
+	$ratee = Participant($_POST['ratee']);
+	$event = $_POST['event'];
+
+	if (Joined($ratee, $event) == 'joined') {
+		exit('true');
+	} else {
+		exit('false');
+	}
+}
+
+/* Get participant ID */
 function Participant($username) {
 	require './db.hndlr.php';
 
@@ -40,12 +55,13 @@ function Participant($username) {
 	}
 }
 
-function Joined($username) {
+/* Check if participant of event */
+function Joined($username, $event) {
 	require './db.hndlr.php';
 
-	$stmnt = 'SELECT * FROM event_participants WHERE u_id = ? ;';
+	$stmnt = 'SELECT * FROM event_participants WHERE u_id = ? AND evnt_id = ? ;';
 	$query = $db->prepare($stmnt);
-	$param = [$username];
+	$param = [$username, $event];
 	$query->execute($param);
 	$count = $query->rowCount();
 	if ($count > 0) {

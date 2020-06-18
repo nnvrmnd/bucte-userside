@@ -6,8 +6,9 @@ SeshStart('page');
 <html lang="en">
 
 <head>
-	<title>Article | BUCTE</title>
+	<title>Quick Survey | BUCTE</title>
 	<?php include './components/layout/Head.php'; ?>
+	<link rel="stylesheet" href="./assets/css/radio-buttons.css">
 	<style>
 		#event-image {
 			height: 400px;
@@ -123,7 +124,7 @@ SeshStart('page');
 
 	<!-- **** All JS Files ***** -->
 	<?php include './components/layout/Scripts.php'; ?>
-	<script src="./assets/js/article.js" type="text/javascript"></script>
+	<script src="./assets/js/survey.js" type="text/javascript"></script>
 </body>
 
 </html>

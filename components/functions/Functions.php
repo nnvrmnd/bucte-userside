@@ -24,12 +24,12 @@ function UserRN($user, $token, $where) {
 			$db_token = $data['token'];
 			if (password_verify($db_token, $token)) {
 				if ($where == 'login') {
-					header('location: index.php');
+					header('location: /app/');
 				}
 			} else {
 				unset($_SESSION['user']);
 				if ($where == 'restricted') {
-					header('location: index.php');
+					header('location: /app/');
 				}
 			}
 		}

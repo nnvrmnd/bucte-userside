@@ -35,51 +35,26 @@ if (isset($_POST['email']) && isset($_POST['sig'])) {
 	}
 }
 
-if (isset($_POST['evf_email'])) {
+if (isset($_POST['unverified'])) {
 	require './db.hndlr.php';
 	include_once './Mailer.php';
 
-	$email = $_POST['evf_email'];
-	$id = IDEmail($email);
-	$expires = date('YmdHis', strtotime('+48 hours'));
-	$signature = $email . '_' . $expires;
+	$email = $_POST['unverified'];
+	$expires = date('ymdHis', strtotime('+48 hours'));
 
 	$db->beginTransaction();
-	$stmnt = 'SELECT * FROM unverified_user WHERE BINARY email = ? ;'; // check if email already exist
+	$stmnt = 'UPDATE unverified_user SET expires = ? WHERE BINARY email = ? ;';
 	$query = $db->prepare($stmnt);
-	$param = [$email];
+	$param = [$expires, $email];
 	$query->execute($param);
 	$count = $query->rowCount();
 	if ($count > 0) {
-		$stmnt = 'UPDATE unverified_user SET expires = ? WHERE BINARY email = ? ;'; // update expiration
-		$query = $db->prepare($stmnt);
-		$param = [$expires, $email];
-		$query->execute($param);
-		$count = $query->rowCount();
-		if ($count > 0) {
-			if (VerificationEmail($email, $expires, $signature) === 'sent') {
-				$db->commit();
-				exit('sent');
-			} else {
-				$db->rollBack();
-				exit('!sent');
-			}
-		} else {
-			$db->rollBack();
-			exit('err:update');
-		}
-	} else {
-		$stmnt = 'INSERT INTO unverified_user (u_id, email, expires) VALUES (?, ?, ?) ;'; // create expiration
-		$query = $db->prepare($stmnt);
-		$param = [$id, $email, $expires];
-		$query->execute($param);
-		$count = $query->rowCount();
-		if ($count > 0) {
+		if (Mailer($email, $expires) === 'sent') {
 			$db->commit();
-			exit('true');
+			exit('sent');
 		} else {
 			$db->rollBack();
-			exit('err:insert');
+			exit('err:mailer');
 		}
 	}
 }
@@ -87,7 +62,7 @@ if (isset($_POST['evf_email'])) {
 function CheckAccount($email) {
 	require './db.hndlr.php';
 
-	$stmnt = 'SELECT * FROM user WHERE BINARY email = ? ;';
+	$stmnt = 'SELECT * FROM user WHERE BINARY email = ? AND account_status = "0" ;';
 	$query = $db->prepare($stmnt);
 	$param = [$email];
 	$query->execute($param);
@@ -139,7 +114,4 @@ function AccountVerified($email) {
 	}
 }
 
-// $test = md5('suterusu.naito@gmail.com_20200402225740');
-// echo $test;
-// echo "<br>";
-// echo "884d6e503ad4653a172ee343dc967f8a";
+// echo md5('200610033247_suterusu.naito@gmail.com');

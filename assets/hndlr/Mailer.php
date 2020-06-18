@@ -229,7 +229,7 @@ function Mailer($email, $expiration) {
 																									<p style="margin:0;margin-top:20px;line-height:0;"></p>
 																									<p
 																										style="margin:0;color:#585858;font-size:14px;font-weight:400;line-height:170%;">
-																										Regards,<br>Biocl University Center for Teaching Excellence</p>
+																										Regards,<br>Bicol University Center for Teaching Excellence</p>
 																							</td>
 																						</tr>
 																				</tbody>

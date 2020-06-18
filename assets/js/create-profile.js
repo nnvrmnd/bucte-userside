@@ -38,7 +38,7 @@ $(function () {
 						console.log(res)
             if (res == 'sent') {
               resolve(res);
-							SuccessModal('Account created.', 5000);
+							SuccessModal('An email-verification link has been sent to your email.', 10000);
 							$('#SuccessModal').on('hidden.bs.modal', function () {
 								window.location.href = '/app/';
 							});
@@ -118,7 +118,7 @@ function ValidatePassword(formId, nameProp1, nameProp2) {
       input2 = $element2.val(),
       $msg1 = $(`small.${nameProp1}`),
 			$msg2 = $(`small.${nameProp2}`),
-      regex = new RegExp(`\\b${input1}\\b`);
+      regex = new RegExp(`\\b${input1}\\b`); //dynamic regex
 
     switch (true) {
       case input1.length <= 4:

@@ -27,7 +27,7 @@ function RenderList(selected_level) {
             $('.reviewers-container').append(`
 						<div class="single-recent-post d-flex pointer-here reviewer" data-target="${el.reviewer_id}">
 							<div class="post-thumb">
-								<a href="javascript:void(0)"><img src="./dist/img/bg-img/29.jpg" alt=""></a>
+								<a href="javascript:void(0)"><img src="./assets/img/file_format/reviewer.png" alt=""Reviewer thumb></a>
 							</div>
 							<div class="post-content">
 								<a href="javascript:void(0)" class="font-weight-bold post-title mb-2" style="font-size:18px">

@@ -11,19 +11,20 @@ $(function () {
       let desc = data.description,
         blockquote = new RegExp('<blockquote>', 'g'),
         ul = new RegExp('<ul>', 'g'),
-        ol = new RegExp('<ol>', 'g'),
-        deadline = data.reg_deadline,
+				ol = new RegExp('<ol>', 'g'),
+				startdate = moment(data.start_date, 'MM/DD/YYYY').format('MMM DD').toString(),
+				enddate = moment(data.end_date, 'MM/DD/YYYY').format('MMM DD, YYYY').toString(),
+				starttime = moment(data.start_date, 'h:mm A').format('h:mm A').toString(),
+				endtime = moment(data.end_date, 'h:mm A').format('h:mm A').toString(),
+				regdeadline = moment(data.reg_deadline, 'MM/DD/YYYY').format('MMM DD, YYYY h:mm A').toString(),
         today = moment().utcOffset(8).format('x'),
-        check_deadline = moment(data.reg_deadline, 'MM/DD/YY h:mm A').format(
-          'x'
-        );
+				check_deadline = moment(data.reg_deadline, 'MM/DD/YYYY').format('x');
 
       desc = desc.replace(
         blockquote,
         '<blockquote class="roberto-blockquote d-flex">'
       );
       desc = desc.replace(/\b&nbsp;\b/g, ' ');
-      deadline = moment(deadline, 'MM/DD/YY h:mm A').format('MMM DD h:mm A');
 
       $('.event-title').html(data.title);
       $('.event-title2').html(`<h2>${data.title}</h2>`);
@@ -31,11 +32,11 @@ $(function () {
       $('.event-details').html(`
 				<dl class="row">
 					<dt class="col-sm-3 text-muted h6">Schedule:</dt>
-					<dd class="col-sm-9 h6">Jun 11 - Jun 12</dd>
+					<dd class="col-sm-9 h6">${startdate} - ${enddate}</dd>
 					<dt class="col-sm-3 text-muted h6">Time:</dt>
-					<dd class="col-sm-9 h6">12:00 AM - 12:00 AM</dd>
+					<dd class="col-sm-9 h6">${starttime} - ${endtime}</dd>
 					<dt class="col-sm-3 text-muted h6">Registration deadline:</dt>
-					<dd class="col-sm-9 h6">${deadline}</dd>
+					<dd class="col-sm-9 h6">${regdeadline}</dd>
 					<dt class="col-sm-3 text-muted h6">Venue:</dt>
 					<dd class="col-sm-9 h6">${data.venue}</dd>
 				</dl>
@@ -47,7 +48,7 @@ $(function () {
 				</div>
 				`);
       $('.event-body').append(desc);
-      $('.event-btn').attr('data-target', data.evnt_id);
+			$('.event-btn').attr('data-target', data.evnt_id);
 
       if (today <= check_deadline) {
         $('.event-btn')

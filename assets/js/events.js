@@ -28,7 +28,7 @@ function RenderList(currentpage) {
           desc = el.description;
 
         title =
-          title.length >= 77 ? title.substring(0, 77) + '<b> ...</b>' : desc;
+          title.length >= 77 ? title.substring(0, 77) + '<b> ...</b>' : title;
         desc = desc.replace(/\b&nbsp;\b/g, ' ');
         desc =
           desc.length >= 177
@@ -96,7 +96,7 @@ function RenderList(currentpage) {
 }
 
 $(function () {
-	$('.rb-recents').addClass('d-none');
+  $('.rb-recents').addClass('d-none');
 
   let currentpage = 0;
   RenderList(currentpage);

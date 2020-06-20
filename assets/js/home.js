@@ -37,7 +37,7 @@ $(function () {
           desc = el.description;
 
         title =
-          title.length >= 70 ? title.substring(0, 70) + '<b> ...</b>' : desc;
+          title.length >= 70 ? title.substring(0, 70) + '<b> ...</b>' : title;
         desc = desc.replace(/\b&nbsp;\b/g, ' ');
         desc =
           desc.length >= 77 ? desc.substring(0, 77) + '<b>...</b><p>' : desc;

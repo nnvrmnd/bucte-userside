@@ -10,9 +10,11 @@ SeshStart('page');
 	<?php include './components/layout/Head.php'; ?>
 	<style>
 		#events img {
-			height: 150px;
+			height: 180px;
 			width: 100%;
 			max-width: 300px;
+			display:block;
+			margin:auto;
 		}
 	</style>
 </head>

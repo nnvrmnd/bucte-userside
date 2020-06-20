@@ -20,19 +20,24 @@ $(function () {
       $('#upcoming').empty();
       let upcoming = JSON.parse(res);
 
+      upcoming.sort((a, b) => (a.sort_date < b.sort_date ? 1 : -1));
+
       $.each(upcoming, function (idx, el) {
         let event = cipher(el.event_id),
           today = moment().format('x'),
-          startdate = moment(el.start_date, 'MM/DD/YYYY').format('x'),
+          startdate = moment(el.start_date, 'YYYY/MM/DD h:mm A').format('x'),
           timeago =
             today <= startdate
-              ? moment(el.start_date, 'MM/DD/YYYY')
+              ? moment(el.start_date, 'YYYY/MM/DD h:mm A')
                   .format('MMM DD, YYYY h:mm A')
                   .toString()
               : jQuery.timeago(el.start_date),
           eventcat = today <= startdate ? 'COMING UP' : '',
+          title = el.title,
           desc = el.description;
 
+        title =
+          title.length >= 70 ? title.substring(0, 70) + '<b> ...</b>' : desc;
         desc = desc.replace(/\b&nbsp;\b/g, ' ');
         desc =
           desc.length >= 77 ? desc.substring(0, 77) + '<b>...</b><p>' : desc;
@@ -42,8 +47,7 @@ $(function () {
 					<div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms"
 						style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
 					<a href="./article.php?event=${event}" class="post-thumbnail">
-						<img src="./files/events/${el.image}" class="upcoming-thumb"
-							style="height: 170px; width: 100%; max-width: 300px;" alt="Event thumbnail">
+						<img src="./files/events/${el.image}" class="upcoming-thumb" alt="Event thumbnail">
 					</a>
 
 					<div class="post-meta">
@@ -51,7 +55,7 @@ $(function () {
 						<a href="javascript:void(0)" class="post-catagory default-pointer-here">${eventcat}</a>
 					</div>
 
-					<a href="./article.php?event=${event}" class="post-title">${el.title}</a>
+					<a href="./article.php?event=${event}" class="post-title">${title}</a>
 					<p>${desc}</p>
 					<a href="./article.php?event=${event}" class="btn continue-btn">
 						<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -63,7 +67,7 @@ $(function () {
         return idx < 2;
       });
     } catch (e) {
-      console.log('ERR', e.message);
+      console.error('ERR', e.message);
       $('.upcoming-events').addClass('d-none');
     }
   });

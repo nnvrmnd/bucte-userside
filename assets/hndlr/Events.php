@@ -27,7 +27,8 @@ if (isset($_POST['upcoming'])) {
 				'description' => $description,
 				'start_date' => $start_date,
 				'end_date' => $end_date,
-				'image' => $image
+				'image' => $image,
+				'sort_date' => sortdate($start_date)
 			];
 		}
 
@@ -35,4 +36,9 @@ if (isset($_POST['upcoming'])) {
 	} else {
 		exit('empty');
 	}
+}
+
+function sortdate($date) {
+	$sortdate = new DateTime($date);
+	return $sortdate->format('Y-m-d');
 }

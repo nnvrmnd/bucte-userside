@@ -10,20 +10,25 @@ function RenderList(currentpage) {
         paginate = upcoming.slice(start, end),
         pages = Math.ceil(upcoming.length / rowsperpage);
 
+      paginate.sort((a, b) => (a.sort_date < b.sort_date ? 1 : -1));
+
       $.each(paginate, function (idx, el) {
         let event = cipher(el.event_id),
           today = moment().format('x'),
-          startdate = moment(el.start_date, 'MM/DD/YYYY').format('x'),
+          startdate = moment(el.start_date, 'YYYY/MM/DD h:mm A').format('x'),
           timeago =
             today <= startdate ? 'COMING SOON' : jQuery.timeago(el.start_date),
           eventcat =
             today <= startdate
-              ? moment(el.start_date, 'MM/DD/YYYY')
+              ? moment(el.start_date, 'YYYY/MM/DD h:mm A')
                   .format('MMM DD, YYYY h:mm A')
                   .toString()
               : '&emsp;',
+          title = el.title,
           desc = el.description;
 
+        title =
+          title.length >= 77 ? title.substring(0, 77) + '<b> ...</b>' : desc;
         desc = desc.replace(/\b&nbsp;\b/g, ' ');
         desc =
           desc.length >= 177
@@ -45,7 +50,7 @@ function RenderList(currentpage) {
 									<a href="javascript:void(0)" class="post-tutorial default-pointer-here">${eventcat}</a>
 								</div>
 
-								<a href="./article.php?event=${event}" class="post-title">Cdc Issues Health Alert Notice For Travelers To Usa From Hon</a>
+								<a href="./article.php?event=${event}" class="post-title">${title}</a>
 								<p>${desc}</p>
 								<a href="./article.php?event=${event}" class="btn continue-btn">Read More</a>
 							</div>
@@ -83,31 +88,35 @@ function RenderList(currentpage) {
       }
 
       $('body').find(`li.page${currentpage}`).addClass('active');
-      ScrollUp('.roberto-news-area');
     } catch (e) {
-      console.log('ERR', e.message);
+      console.error('ERR', e.message);
       $('.upcoming-events').addClass('d-none');
     }
   });
 }
 
 $(function () {
+	$('.rb-recents').addClass('d-none');
+
   let currentpage = 0;
   RenderList(currentpage);
 
   $('body').on('click', '.prev-btn', function () {
     currentpage--;
     RenderList(currentpage);
+    ScrollUp('.roberto-news-area');
   });
 
   $('body').on('click', '.page-btn', function () {
     let page = $(this).attr('data-target');
     currentpage = page;
     RenderList(currentpage);
+    ScrollUp('.roberto-news-area');
   });
 
   $('body').on('click', '.next-btn', function () {
     currentpage++;
     RenderList(currentpage);
+    ScrollUp('.roberto-news-area');
   });
 });

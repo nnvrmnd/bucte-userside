@@ -12,13 +12,13 @@ $(function () {
         blockquote = new RegExp('<blockquote>', 'g'),
         ul = new RegExp('<ul>', 'g'),
 				ol = new RegExp('<ol>', 'g'),
-				startdate = moment(data.start_date, 'MM/DD/YYYY').format('MMM DD').toString(),
-				enddate = moment(data.end_date, 'MM/DD/YYYY').format('MMM DD, YYYY').toString(),
+				startdate = moment(data.start_date, 'YYYY/MM/DD h:mm A').format('MMM DD').toString(),
+				enddate = moment(data.end_date, 'YYYY/MM/DD h:mm A').format('MMM DD, YYYY').toString(),
 				starttime = moment(data.start_date, 'h:mm A').format('h:mm A').toString(),
 				endtime = moment(data.end_date, 'h:mm A').format('h:mm A').toString(),
-				regdeadline = moment(data.reg_deadline, 'MM/DD/YYYY').format('MMM DD, YYYY h:mm A').toString(),
+				regdeadline = moment(data.reg_deadline, 'YYYY/MM/DD h:mm A').format('MMM DD, YYYY h:mm A').toString(),
         today = moment().utcOffset(8).format('x'),
-				check_deadline = moment(data.reg_deadline, 'MM/DD/YYYY').format('x');
+				check_deadline = moment(data.reg_deadline, 'YYYY/MM/DD h:mm A').format('x');
 
       desc = desc.replace(
         blockquote,

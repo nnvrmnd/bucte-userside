@@ -1,28 +1,38 @@
 <?php
- if(isset($_POST['page'])){
-    require 'db.hndlr.php';
-    $start_from = '';
-    $page = $_POST['page'];
-    $page != '' ? $start_from = ($_POST['page'] - 1) * 5 : $start_from = '1';
-    $statementi = "SELECT * FROM events ORDER BY end_date ASC LIMIT $page, 5";
-    $queryi = $db->prepare($statementi);
-    $queryi->execute();
-    $resulti = $queryi->fetchall(PDO::FETCH_ASSOC);  
-    
-    echo json_encode($resulti);
-    // var_dump($resulti);
-}
 
+/* Upcoming events */
+if (isset($_POST['upcoming'])) {
+	require './db.hndlr.php';
 
-if(isset($_GET['data'])){
-    require 'db.hndlr.php';
-   
-    $statementi = "SELECT * FROM events ORDER BY end_date ASC";
-    $queryi = $db->prepare($statementi);
-    $queryi->execute();
-    $resulti = $queryi->fetchall(PDO::FETCH_ASSOC);  
-    $row = $queryi -> rowCount();
-    //echo json_encode($resulti);
-    // var_dump($resulti);
-    echo $row;
+	$limit = $_POST['upcoming'];
+
+	$stmnt = 'SELECT * FROM events ORDER BY created_at DESC ;';
+	$query = $db->prepare($stmnt);
+	$query->execute();
+	$count = $query->rowCount();
+	if ($count > 0) {
+		$dbData = [];
+
+		foreach ($query as $data) {
+			$event_id = $data['evnt_id'];
+			$title = $data['title'];
+			$description = $data['description'];
+			$start_date = $data['start_date'];
+			$end_date = $data['end_date'];
+			$image = $data['image'];
+
+			$dbData[] = [
+				'event_id' => $event_id,
+				'title' => $title,
+				'description' => $description,
+				'start_date' => $start_date,
+				'end_date' => $end_date,
+				'image' => $image
+			];
+		}
+
+		echo json_encode($dbData);
+	} else {
+		exit('empty');
+	}
 }

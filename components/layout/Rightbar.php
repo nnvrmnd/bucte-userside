@@ -12,7 +12,7 @@
 
 		<!-- Recent Post -->
 		<div class="single-widget-area mb-100 rb-recents">
-			<h4 class="widget-title mb-30">Events</h4>
+			<h4 class="widget-title mb-30">Upcoming & Recent Events</h4>
 
 			<!-- Single Recent Post -->
 			<div id="rightbar_event"></div>

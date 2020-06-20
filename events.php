@@ -50,11 +50,9 @@ SeshStart('page');
 					<!-- Single Blog Post Area -->
 					<div id="events"></div>
 					<!-- Pagination -->
-					<nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="600ms">
-						<ul class="pagination" style="display: flex; flex-wrap: wrap; justify-content: end;">
-							<li class="page-item" id="nextNumber" style="margin: 1px"><a class="page-link" href="#">Next
-									<i class="fa fa-angle-right"></i></a></li>
-						</ul>
+					<nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="600ms"
+						style="visibility: visible; animation-delay: 600ms; animation-name: fadeInUp;">
+						<ul class="pagination"></ul>
 					</nav>
 				</div>
 

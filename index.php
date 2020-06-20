@@ -64,8 +64,7 @@ SeshStart('page');
 					</div>
 					<div class="about-us-content mb-100">
 						<h5 class="wow fadeInUp" data-wow-delay="300ms" id="content"></h5>
-						<img src="./dist/img/core-img/signature.png" alt="" class="wow fadeInUp" data-wow-delay="500ms"
-							id="signature">
+						<!-- <img src="./dist/img/core-img/signature.png" alt="" class="wow fadeInUp" data-wow-delay="500ms" id="signature"> -->
 					</div>
 				</div>
 
@@ -94,19 +93,19 @@ SeshStart('page');
 	<!-- About Us Area End -->
 
 	<!-- Blog Area Start -->
-	<section class="roberto-blog-area section-padding-100-0">
+	<section class="roberto-blog-area section-padding-100-0 upcoming-events">
 		<div class="container">
 			<div class="row">
 				<!-- Section Heading -->
 				<div class="col-12">
 					<div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
 						<!-- <h6>Recent Events</h6> -->
-						<h2>Recent Events</h2>
+						<h2>Upcoming & Recent Events</h2>
 					</div>
 				</div>
 			</div>
 
-			<div class="row" id="events">
+			<div class="row" id="upcoming">
 				<!-- Single Post Area -->
 			</div>
 		</div>

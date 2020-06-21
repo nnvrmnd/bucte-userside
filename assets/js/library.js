@@ -45,9 +45,9 @@ function RenderList() {
             uploaded_time,
             uploaded_at;
 
-					description = !description.match(/^\s*$/)
-					? `&ndash; ${el.description}`
-					: '<i><small>No description...</small></i>',
+          description = !description.match(/^\s*$/)
+            ? `&ndash; ${el.description}`
+            : '<i><small>No description...</small></i>';
 
           attachment_title = attachment_title.replace(/[^A-Za-z0-9_.-]/g, '_');
           attachment_format = attachment_format.split('.');
@@ -67,7 +67,9 @@ function RenderList() {
 									${el.title}
 							</a>
 							<p class="mb-0">${description}</p>
-							<a href="./files/library/${el.attachment}" download="${attachment_filename}" class="btn btn-sm btn-link ">Download</a>
+							<a href="./files/resources/${
+                el.attachment
+              }" download="${attachment_filename}" class="btn btn-sm btn-link ">Download</a>
 						</div>
 					</div>
 					`);

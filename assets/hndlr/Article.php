@@ -7,7 +7,7 @@ if (isset($_POST['participant']) && isset($_POST['event'])) {
 	$event = $_POST['event'];
 	$participant = Participant($_POST['participant']);
 
-	if (Joined($participant, $event) === true) {
+	if (Joined($participant, $event) === 'not') {
 		$db->beginTransaction();
 		$stmnt = 'INSERT INTO event_participants (evnt_id, u_id) VALUES (?, ?) ;';
 		$query = $db->prepare($stmnt);
@@ -26,13 +26,14 @@ if (isset($_POST['participant']) && isset($_POST['event'])) {
 	}
 }
 
+/* Check if participated */
 if (isset($_POST['ratee']) && isset($_POST['event'])) {
 	require './db.hndlr.php';
 
 	$ratee = Participant($_POST['ratee']);
 	$event = $_POST['event'];
 
-	if (Joined($ratee, $event) == 'joined') {
+	if (Joined($ratee, $event) === 'joined') {
 		exit('true');
 	} else {
 		exit('false');
@@ -67,6 +68,6 @@ function Joined($username, $event) {
 	if ($count > 0) {
 		return 'joined';
 	} else {
-		return true;
+		return 'not';
 	}
 }

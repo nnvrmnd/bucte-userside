@@ -40,7 +40,7 @@ if (isset($_POST['guest'])) {
 	if ($count > 0) {
 		exit('done');
 	} else {
-		exit('true');
+		exit('not');
 	}
 }
 

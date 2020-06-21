@@ -7,10 +7,11 @@ function RenderList(currentpage) {
         rowsperpage = 5,
         start = rowsperpage * currentpage,
         end = start + rowsperpage,
-        paginate = upcoming.slice(start, end),
-        pages = Math.ceil(upcoming.length / rowsperpage);
+        pages = Math.ceil(upcoming.length / rowsperpage),
+        paginate;
 
-      paginate.sort((a, b) => (a.sort_date < b.sort_date ? 1 : -1));
+      upcoming.sort((a, b) => (a.sort_date < b.sort_date ? 1 : -1));
+			paginate = upcoming.slice(start, end);
 
       $.each(paginate, function (idx, el) {
         let event = cipher(el.event_id),

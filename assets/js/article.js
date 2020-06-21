@@ -1,24 +1,34 @@
-$(function () {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  let getEventParam = urlParams.get('event');
-  let event = decipher(getEventParam);
+function RenderList() {
+  let queryString = window.location.search,
+    urlParams = new URLSearchParams(queryString),
+    getEventParam = urlParams.get('event'),
+    event = decipher(getEventParam);
 
-  if (getEventParam != undefined) {
+  if (CheckUrlParam('event') != undefined) {
     $.get('./assets/hndlr/GetData.php', { key: event }, function (data) {
       data = JSON.parse(data);
 
       let desc = data.description,
         blockquote = new RegExp('<blockquote>', 'g'),
         ul = new RegExp('<ul>', 'g'),
-				ol = new RegExp('<ol>', 'g'),
-				startdate = moment(data.start_date, 'YYYY/MM/DD h:mm A').format('MMM DD').toString(),
-				enddate = moment(data.end_date, 'YYYY/MM/DD h:mm A').format('MMM DD, YYYY').toString(),
-				starttime = moment(data.start_date, 'h:mm A').format('h:mm A').toString(),
-				endtime = moment(data.end_date, 'h:mm A').format('h:mm A').toString(),
-				regdeadline = moment(data.reg_deadline, 'YYYY/MM/DD h:mm A').format('MMM DD, YYYY h:mm A').toString(),
+        ol = new RegExp('<ol>', 'g'),
+        startdate = moment(data.start_date, 'YYYY/MM/DD h:mm A')
+          .format('MMM DD')
+          .toString(),
+        enddate = moment(data.end_date, 'YYYY/MM/DD h:mm A')
+          .format('MMM DD, YYYY')
+          .toString(),
+        starttime = moment(data.start_date, 'h:mm A')
+          .format('h:mm A')
+          .toString(),
+        endtime = moment(data.end_date, 'h:mm A').format('h:mm A').toString(),
+        regdeadline = moment(data.reg_deadline, 'YYYY/MM/DD h:mm A')
+          .format('MMM DD, YYYY h:mm A')
+          .toString(),
         today = moment().utcOffset(8).format('x'),
-				check_deadline = moment(data.reg_deadline, 'YYYY/MM/DD h:mm A').format('x');
+        check_deadline = moment(data.reg_deadline, 'YYYY/MM/DD h:mm A').format(
+          'x'
+        );
 
       desc = desc.replace(
         blockquote,
@@ -48,7 +58,7 @@ $(function () {
 				</div>
 				`);
       $('.event-body').append(desc);
-			$('.event-btn').attr('data-target', data.evnt_id);
+      $('.event-btn').attr('data-target', data.evnt_id);
 
       if (today <= check_deadline) {
         $('.event-btn')
@@ -65,6 +75,10 @@ $(function () {
   } else {
     window.location.href = './events.php';
   }
+}
+
+$(function () {
+  RenderList();
 
   /* Join event */
   $('body').on('click', '#join-btn', function (e) {
@@ -91,8 +105,9 @@ $(function () {
 
     let ratee = $('#user_rn').val(),
       event = $(this).attr('data-target'),
-      cipherEvent = cipher(event);
-    (regex = /^\s*$/), (form = []);
+      cipherEvent = cipher(event),
+      regex = /^\s*$/,
+      form = [];
 
     if (ratee.match(regex)) {
       $('#login').click();
@@ -114,12 +129,12 @@ $(function () {
     let form = JSON.parse($(this).attr('data-target'));
 
     $.post('./assets/hndlr/Article.php', form, function (res) {
-      if (res == 'true') {
+      if (res === 'true') {
         SuccessModal(
           'You are successfully signed up to this event.<br>See you there!',
           5000
         );
-      } else if (res == 'joined') {
+      } else if (res === 'joined') {
         ErrorModal(5000, 'You already signed up for this event.');
       } else {
         console.log('ERR', res);

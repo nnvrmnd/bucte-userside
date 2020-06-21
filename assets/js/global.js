@@ -139,7 +139,7 @@ function SuccessModal(msg, timeout, redirect = 0) {
   window.clearTimeout(timer);
   $('#success-modal-msg').html(msg);
   setTimeout(() => {
-		$('.modal').modal('hide');
+    $('.modal').modal('hide');
     $('#SuccessModal').modal('show');
   }, 1000);
 
@@ -293,6 +293,13 @@ function unicode(name) {
     .replace(/|/g, '&#124;')
     .replace(/\}/g, '&#125;')
     .replace(/~/g, '&#126;');
+}
+
+function CheckUrlParam(param) {
+  let results = new RegExp('[\\?&]' + param + '=([^&#]*)').exec(
+    window.location.search
+  );
+  return (results && results[1]) || undefined;
 }
 
 /* *************************************************** */

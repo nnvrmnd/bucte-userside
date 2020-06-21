@@ -10,6 +10,7 @@ function RenderList(currentpage) {
         pages = Math.ceil(upcoming.length / rowsperpage),
         paginate;
 
+      // upcoming.sort((a, b) => (a.sort_date < b.sort_date ? 1 : -1));
       upcoming.sort((a, b) => {
         return (
           Math.abs(Date.now() - new Date(a.sort_date)) -
@@ -23,7 +24,7 @@ function RenderList(currentpage) {
           today = moment().format('x'),
           startdate = moment(el.start_date, 'YYYY/MM/DD h:mm A').format('x'),
           timeago =
-            today <= startdate ? 'UP NEXT' : jQuery.timeago(el.start_date),
+            today <= startdate ? 'COMING SOON' : jQuery.timeago(el.start_date),
           eventcat =
             today <= startdate
               ? moment(el.start_date, 'YYYY/MM/DD h:mm A')
@@ -124,5 +125,55 @@ $(function () {
     currentpage++;
     RenderList(currentpage);
     ScrollUp('.roberto-news-area');
+  });
+});
+
+$(function () {
+  events = [
+    {
+      eventId: 1,
+      eventDate: 'Wen Apr 01 2015 18:41:00 GMT+0300',
+      eventPlace: 'Dortmund, DE',
+    },
+    {
+      eventId: 2,
+      eventDate: 'Sun Apr 05 2015 23:41:00 GMT+0300',
+      eventPlace: 'Budapest, HU',
+    },
+    {
+      eventId: 3,
+      eventDate: 'Fri Apr 03 2015 13:41:00 GMT+0300',
+      eventPlace: 'Madrid, ES',
+    },
+    {
+      eventId: 4,
+      eventDate: 'Mon Jun 01 2015 22:00:00 GMT+0300',
+      eventPlace: 'London, EN',
+    },
+    { eventId: 100, eventDate: 'Mon Aug 31 2015 22:00:00 GMT+0300' },
+  ];
+
+  $.post('./assets/hndlr/Events.php', { upcoming: 'all' }, function (res) {
+    try {
+      let events = JSON.parse(res),
+        sorted,
+        today,
+        sortdate,
+        i;
+
+      today = new Date();
+
+      // sorted = events.sort((a, b) => (a.sort_date < b.sort_date ? 1 : -1));
+      sorted = events.sort((a, b) => {
+        return (
+          Math.abs(Date.now() - new Date(a.sort_date)) -
+          Math.abs(Date.now() - new Date(b.sort_date))
+        );
+      });
+
+      console.log('sorted', sorted);
+    } catch (e) {
+      console.error('ERR', e.message);
+    }
   });
 });

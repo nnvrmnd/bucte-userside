@@ -4,14 +4,19 @@ $(function () {
       $('#upcoming').empty();
       let upcoming = JSON.parse(res);
 
-      upcoming.sort((a, b) => (a.sort_date < b.sort_date ? 1 : -1));
+      upcoming.sort((a, b) => {
+        return (
+          Math.abs(Date.now() - new Date(a.sort_date)) -
+          Math.abs(Date.now() - new Date(b.sort_date))
+        );
+      });
 
       $.each(upcoming, function (idx, el) {
         let event = cipher(el.event_id),
           today = moment().format('x'),
           startdate = moment(el.start_date, 'YYYY/MM/DD h:mm A').format('x'),
           timeago =
-            today <= startdate ? 'COMING SOON' : jQuery.timeago(el.start_date),
+            today <= startdate ? 'UP NEXT' : jQuery.timeago(el.start_date),
           eventcat =
             today <= startdate
               ? moment(el.start_date, 'YYYY/MM/DD h:mm A')

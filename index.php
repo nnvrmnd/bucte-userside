@@ -23,6 +23,10 @@ SeshStart('page');
 			display: block;
 			margin: auto;
 		}
+
+		.post-date {
+			color: #1cc3b2 !important;
+		}
 	</style>
 </head>
 

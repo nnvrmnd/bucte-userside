@@ -84,17 +84,17 @@ SeshStart('page');
 				<div class="col-12 col-lg-6">
 					<div class="about-us-thumbnail mb-100 wow fadeInUp" data-wow-delay="700ms">
 						<div class="row no-gutters">
-							<div class="col-6">
+							<!-- <div class="col-6">
 								<div class="single-thumb">
 									<img id="image1" src="./dist/img/bg-img/bu2.jpg" alt="">
 								</div>
 								<div class="single-thumb">
 									<img id="image2" src="./dist/img/bg-img/bu1.jpg" alt="">
 								</div>
-							</div>
-							<div class="col-6">
+							</div> -->
+							<div class="col-12">
 								<div class="single-thumb">
-									<img id="image3" src="./dist/img/bg-img/bu-dim2.jpg" alt="">
+									<img id="image1" alt="Display image">
 								</div>
 							</div>
 						</div>

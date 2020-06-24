@@ -18,3 +18,19 @@ if (isset($_POST['welcome'])) {
 		exit('empty');
 	}
 }
+
+if (isset($_POST['image'])) {
+	require './db.hndlr.php';
+
+	$stmnt = 'SELECT * FROM content_images WHERE image = "image-1" ;';
+	$query = $db->prepare($stmnt);
+	$query->execute();
+	$count = $query->rowCount();
+	if ($count > 0) {
+		foreach ($query as $data) {
+			exit($data['folder']);
+		}
+	} else {
+		exit('empty');
+	}
+}

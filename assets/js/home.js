@@ -1,6 +1,14 @@
 $(function () {
+  /* Welcome image */
+  $.post('./assets/hndlr/Home.php', { image: 'img' }, function (res) {
+		console.log(res)
+		if (res !== 'empty') {
+			$('img#image1').attr('src', './files/contents/' + res);
+		}
+	});
+
   /* Welcome content */
-  $.post('./assets/hndlr/Homepage.php', { welcome: 'all' }, function (res) {
+  $.post('./assets/hndlr/Home.php', { welcome: 'all' }, function (res) {
     try {
       let welcome = JSON.parse(res);
       $.each(welcome, function (idx, el) {
@@ -37,7 +45,8 @@ $(function () {
                   .format('MMM DD, YYYY h:mm A')
                   .toString()
               : '',
-          timeago = today <= startdate ? 'UP NEXT' : jQuery.timeago(el.start_date),
+          timeago =
+            today <= startdate ? 'UP NEXT' : jQuery.timeago(el.start_date),
           title = el.title,
           desc = el.description;
 

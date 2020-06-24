@@ -2,7 +2,7 @@
 
 if (isset($_POST['email']) && isset($_POST['sig'])) {
 	require './db.hndlr.php';
-	// include_once './Mailer.php';
+
 	$email = $_POST['email'];
 	$signature = $_POST['sig'];
 	$today = date('ymdHis');

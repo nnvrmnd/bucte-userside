@@ -1,27 +1,4 @@
 $(function () {
-  /* Welcome image */
-  $.post('./assets/hndlr/Home.php', { image: 'img' }, function (res) {
-		console.log(res)
-		if (res !== 'empty') {
-			$('img#image1').attr('src', './files/contents/' + res);
-		}
-	});
-
-  /* Welcome content */
-  $.post('./assets/hndlr/Home.php', { welcome: 'all' }, function (res) {
-    try {
-      let welcome = JSON.parse(res);
-      $.each(welcome, function (idx, el) {
-        $('#title').html(el.title);
-        $('#content').html(el.content);
-      });
-    } catch (e) {
-      console.log('ERR', e.message);
-      $('#title').html(`<i>PAGE UNDER MAINTENANCE</i>`);
-      $('#content').html('<p>Please check after some time.</p>');
-    }
-  });
-
   /* Upcoming events */
   $.post('./assets/hndlr/Events.php', { upcoming: '3' }, function (res) {
     try {
@@ -57,32 +34,55 @@ $(function () {
           desc.length >= 77 ? desc.substring(0, 77) + '<b>...</b><p>' : desc;
 
         $('#upcoming').append(`
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms"
-						style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-					<a href="./article.php?event=${event}" class="post-thumbnail">
-						<img src="./files/events/${el.image}" class="upcoming-thumb" alt="Event thumbnail">
-					</a>
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms"
+							style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+						<a href="./article.php?event=${event}" class="post-thumbnail">
+							<img src="./files/events/${el.image}" class="upcoming-thumb" alt="Event thumbnail">
+						</a>
 
-					<div class="post-meta">
-						<a href="javascript:void(0)" class="post-date default-pointer-here">${timeago}</a>
-						<a href="javascript:void(0)" class="post-catagory default-pointer-here">${eventcat}</a>
-					</div>
+						<div class="post-meta">
+							<a href="javascript:void(0)" class="post-date default-pointer-here">${timeago}</a>
+							<a href="javascript:void(0)" class="post-catagory default-pointer-here">${eventcat}</a>
+						</div>
 
-					<a href="./article.php?event=${event}" class="post-title">${title}</a>
-					<p>${desc}</p>
-					<a href="./article.php?event=${event}" class="btn continue-btn">
-						<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-					</a>
+						<a href="./article.php?event=${event}" class="post-title">${title}</a>
+						<p>${desc}</p>
+						<a href="./article.php?event=${event}" class="btn continue-btn">
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</a>
+						</div>
 					</div>
-				</div>
 				`);
 
         return idx < 2;
       });
     } catch (e) {
       console.error('ERR', e.message);
-      $('.upcoming-events').addClass('d-none');
+      // $('.upcoming-events').addClass('d-none');
+    }
+  });
+
+  /* Welcome image */
+  $.post('./assets/hndlr/Home.php', { image: 'img' }, function (res) {
+    console.log(res);
+    if (res !== 'empty') {
+      $('img#image1').attr('src', './files/contents/' + res);
+    }
+  });
+
+  /* Welcome content */
+  $.post('./assets/hndlr/Home.php', { welcome: 'all' }, function (res) {
+    try {
+      let welcome = JSON.parse(res);
+      $.each(welcome, function (idx, el) {
+        $('#title').html(el.title);
+        $('#content').html(el.content);
+      });
+    } catch (e) {
+      console.log('ERR', e.message);
+      $('#title').html(`<i>PAGE UNDER MAINTENANCE</i>`);
+      $('#content').html('<p>Please check after some time.</p>');
     }
   });
 });

@@ -120,6 +120,11 @@ SeshStart('page');
 
 			<div class="row" id="upcoming">
 				<!-- Single Post Area -->
+				<div class="col">
+					<center class="mb-5">
+						<h4 class="text-muted"><i>Loading events...</i></h4>
+					</center>
+				</div>
 			</div>
 		</div>
 	</section>

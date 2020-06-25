@@ -1,7 +1,7 @@
 $(function () {
   $.post('./assets/hndlr/Events.php', { upcoming: '4' }, function (res) {
     try {
-      $('#upcoming').empty();
+      $('#rightbar_event').empty();
       let upcoming = JSON.parse(res);
 
       upcoming.sort((a, b) => {

@@ -3,7 +3,7 @@
 if (isset($_POST['welcome'])) {
 	require './db.hndlr.php';
 
-	$stmnt = "SELECT * FROM content WHERE alias = 'homepage' ;";
+	$stmnt = 'SELECT * FROM content WHERE alias = "homepage" ;';
 	$query = $db->prepare($stmnt);
 	$query->execute();
 	$count = $query->rowCount();
@@ -22,13 +22,13 @@ if (isset($_POST['welcome'])) {
 if (isset($_POST['image'])) {
 	require './db.hndlr.php';
 
-	$stmnt = 'SELECT * FROM content_images WHERE image = "image-1" ;';
+	$stmnt = 'SELECT meta1 FROM content WHERE alias = "homepage" ;';
 	$query = $db->prepare($stmnt);
 	$query->execute();
 	$count = $query->rowCount();
 	if ($count > 0) {
 		foreach ($query as $data) {
-			exit($data['folder']);
+			exit($data['meta1']);
 		}
 	} else {
 		exit('empty');

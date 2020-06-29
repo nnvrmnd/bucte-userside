@@ -146,5 +146,6 @@
 <script src="./assets/js/global.js"></script>
 <script src="./assets/js/jquery.timeago.js" type="text/javascript"></script>
 <script src="./assets/js/aes.encryption.js" type="text/javascript"></script>
+<script src="./assets/js/contact.js" type="text/javascript"></script>
 <script src="./assets/js/config.js" type="text/javascript"></script>
 <script src="./assets/js/rightbar.js" type="text/javascript"></script>

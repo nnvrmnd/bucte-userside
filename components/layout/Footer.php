@@ -8,20 +8,11 @@
 				<div class="col-12 col-sm-6 col-lg-3">
 					<div class="single-footer-widget mb-80">
 						<!-- Footer Logo -->
-						<a href="#" class="footer-logo"><img src="./dist/img/core-img/cte2.png" alt=""></a>
+						<a href="#" class="footer-logo"><img src="./dist/img/core-img/cte2.png" alt="BUCTE Logo"></a>
 
-						<h4>
-							<!-- <i class="icon_phone"></i> -->
-							Telefax: (052) 742-1909
-						</h4>
-						<span>
-							<i class="fa fa-envelope mr-1"></i>
-							bu-cte@bicol-u.edu.ph
-						</span>
-						<span>
-							<i class="fa fa-map-marker mr-1"></i>
-							HERRC Bldg, Bicol University East Campus, Legazpi City
-						</span>
+						<span class="contact-email-footer"></span>
+						<span class="contact-phone-footer"></span>
+						<span class="contact-address-footer"></span>
 					</div>
 				</div>
 
@@ -110,7 +101,7 @@
 				<div class="col-12 col-md-4">
 					<!-- Social Info -->
 					<div class="social-info">
-						<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						<!-- <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> -->
 					</div>
 				</div>
 			</div>

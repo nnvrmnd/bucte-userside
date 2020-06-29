@@ -65,7 +65,6 @@ $(function () {
 
   /* Welcome image */
   $.post('./assets/hndlr/Home.php', { image: 'img' }, function (res) {
-    console.log(res);
     if (res !== 'empty') {
       $('img#image1').attr('src', './files/contents/' + res);
     }

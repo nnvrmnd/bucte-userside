@@ -23,9 +23,9 @@
 
 				<div class="col-8">
 					<div class="top-header-content">
-						<a href="#"><i class="fa fa-facebook"></i> <span>BUCTE Official</span></a>
-						<a href="#"><i class="icon_mail"></i> <span>bu-cte@bicol-u.edu.ph</span></a>
-						<a href="#"><i class="icon_phone"></i> <span>Telefax: (052) 742-1909</span></a>
+						<!-- <a href="#"><i class="fa fa-facebook"></i> <span>BUCTE Official</span></a> -->
+						<a href="#"><span class="contact-email-nav"></span></a>
+						<a href="#"><span class="contact-phone-nav"></span></a>
 					</div>
 				</div>
 
@@ -54,7 +54,7 @@
 				<nav class="classy-navbar justify-content-between" id="robertoNav">
 
 					<!-- Logo -->
-					<a class="nav-brand" href="./"><img src="./dist/img/core-img/cte.png" alt=""></a>
+					<a class="nav-brand" href="./"><img src="./dist/img/core-img/cte.png" alt="BUCTE Logo"></a>
 
 					<!-- Navbar Toggler -->
 					<div class="classy-navbar-toggler">
